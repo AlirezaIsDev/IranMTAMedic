@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IranMTA | Medic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: "Vazirmatn", "Poppins", sans-serif;
     }
+    
     body {
       height: 100vh;
       background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
@@ -20,70 +22,312 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      color: #333;
     }
+    
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
-    .menu-container {
-      position: relative;
-      width: 360px;
-      height: 420px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      border-radius: 30px;
-      box-shadow: 0 20px 50px rgba(255, 100, 0, 0.3);
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      height: 90vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding-top: 40px;
-      animation: fadeUp 1.2s ease forwards;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 15px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
-
+    
     .logo {
-      width: 90px;
-      height: 90px;
-      margin-bottom: 30px;
+      width: 60px;
+      height: 60px;
     }
+    
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-
-    .menu-btns {
+    
+    .title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .rank-badge {
+      background: linear-gradient(135deg, #ff7a00, #ffb347);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(255, 122, 0, 0.4);
+    }
+    
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      flex-grow: 1;
+    }
+    
+    .panel {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      width: 100%;
     }
-    button {
-      width: 220px;
-      padding: 14px 0;
+    
+    .panel-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .rank-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 15px;
+      border-radius: 15px;
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .rank-item:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateX(-5px);
+    }
+    
+    .rank-number {
+      background: linear-gradient(135deg, #ff7a00, #ffb347);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 3px 10px rgba(255, 122, 0, 0.4);
+    }
+    
+    .player-name {
+      flex: 1;
+      text-align: right;
+      margin-right: 15px;
+      font-weight: 600;
+    }
+    
+    .player-weeks {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      min-width: 80px;
+      text-align: center;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
       border: none;
-      border-radius: 25px;
+      border-radius: 15px;
       background: rgba(255, 255, 255, 0.9);
-      color: #ff7b00;
+      font-size: 1rem;
+      color: #333;
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+      box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+    }
+    
+    .login-btn {
+      padding: 14px;
+      border: none;
+      border-radius: 15px;
+      background: #00c853;
+      color: white;
       font-weight: 600;
       font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
+      margin-top: 10px;
+    }
+    
+    .login-btn:hover {
+      background: #009624;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 150, 36, 0.5);
+    }
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 15px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .footer-info {
+      color: white;
+      font-weight: 500;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .action-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff7b00;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-    .btn-gk:hover { background:#ff7b00; color:#fff; transform:translateY(-3px); box-shadow:0 10px 20px rgba(255,123,0,.4); }
-    .btn-management:hover { background:#ff3b3b; color:#fff; transform:translateY(-3px); box-shadow:0 10px 20px rgba(255,59,59,.4); }
-    .btn-login:hover { background:#00c853; color:#fff; transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,200,83,.4); }
-
+    
+    .action-btn:hover {
+      background: #ff7b00;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+    }
+    
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+    }
+    
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .modal-title {
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+    
     .warning-box {
       position: fixed;
       top: -100px;
@@ -98,521 +342,358 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 5px 15px rgba(255,0,0,.4);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
       transition: top 0.6s ease;
       z-index: 999;
     }
-    .warning-box.show { top: 25px; }
-
-    .warning-icon {
-      font-size: 1.8rem;
-      color: #ffffff;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    
+    .warning-box.show {
+      top: 25px;
     }
-
-    .menu-container::before {
-      content: '';
-      position: absolute;
-      width: 180%;
-      height: 180%;
-      background: conic-gradient(from 180deg, rgba(255,255,255,0.15), transparent, rgba(255,255,255,0.3));
-      top: -40%;
-      left: -40%;
-      animation: rotateGlow 10s linear infinite;
-      border-radius: 40px;
-      z-index: -1;
+    
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    @keyframes rotateGlow { to { transform: rotate(360deg); } }
-
-    .footer-panel {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
-      padding: 10px 20px;
-      color: #fff;
-      font-weight: 500;
-      font-size: 0.95rem;
-      box-shadow: 0 5px 20px rgba(255,255,255,.2);
-      border: 1px solid rgba(255,255,255,.3);
-      letter-spacing: .5px;
-      animation: fadeUp 1.5s ease forwards;
-      cursor: pointer;
-      transition: all .3s ease;
-      text-decoration: none;
-    }
-    .footer-panel:hover {
-      background: rgba(255,255,255,.25);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255,255,255,.3);
-    }
-
-    .search-panel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 320px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 25px;
-      padding: 30px 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s ease;
-      z-index: 1000;
-    }
-    .search-panel.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .search-panel h3 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 12px 16px;
-      border: none;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 15px;
-      outline: none;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    .search-btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 15px;
-      background: #007bff;
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-      margin-bottom: 10px;
-    }
-    .search-btn:hover {
-      background: #0056b3;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
-    }
-
-    .back-btn {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.25);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-    }
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.35);
-      transform: translateY(-1px);
-    }
-
-    .result-container {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .salary-box, .reject-box, .error-box {
-      padding: 12px;
-      border-radius: 12px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.4s ease;
-    }
-
-    .salary-box.show, .reject-box.show, .error-box.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .salary-box { background: rgba(40, 167, 69, 0.9); }
-    .reject-box { background: rgba(220, 53, 69, 0.9); }
-    .error-box { background: rgba(220, 53, 69, 0.9); }
-
-    .login-panel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 320px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 25px;
-      padding: 30px 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s ease;
-      z-index: 1000;
-    }
-    .login-panel.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .login-panel h3 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .login-input {
-      width: 100%;
-      padding: 12px 16px;
-      border: none;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 15px;
-      outline: none;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-
-    .login-btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 15px;
-      background: #00c853;
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 200, 83, 0.3);
-      margin-bottom: 10px;
-    }
-    .login-btn:hover {
-      background: #009624;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 150, 36, 0.4);
-    }
-
-    .management-panel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      width: 350px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px);
-      border-radius: 25px;
-      padding: 30px 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s ease;
-      z-index: 1000;
-    }
-    .management-panel.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    .management-panel h3 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .info-box {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-      padding: 12px;
-      border-radius: 12px;
-      color: white;
-      font-weight: 600;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 10px;
-    }
-
-    .player-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .player-input {
-      padding: 10px 14px;
-      border: none;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      font-size: 0.95rem;
-    }
-
-    .submit-player {
-      padding: 10px;
-      border: none;
-      border-radius: 12px;
-      background: #007bff;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .submit-player:hover {
-      background: #0056b3;
-    }
-
-    @media (max-width: 480px) {
-      .menu-container, .login-panel, .search-panel, .management-panel { width: 90%; }
-      button, .login-btn, .search-btn, .back-btn { width: 100%; max-width: 260px; }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .header, .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      
+      .action-buttons {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="menu-container" id="mainMenu">
-    <div class="logo">
-      <img src="https://forum.iranmta.ir/uploads/monthly_2019_05/medic_logo.png.7bc027dc08651ef9f14e3838e641f4ef.png" alt="Medic Logo">
+  <div class="container">
+    <!-- هدر -->
+    <div class="header">
+      <div class="logo-section">
+        <div class="logo">
+          <img src="https://forum.iranmta.ir/uploads/monthly_2019_05/medic_logo.png.7bc027dc08651ef9f14e3838e641f4ef.png" alt="Medic Logo">
+        </div>
+        <h1 class="title">سیستم مدیریت Medic</h1>
+      </div>
+      <div class="user-info">
+        <div class="rank-badge">Rank: Owner</div>
+        <div>خوش آمدید (SkyZero)</div>
+      </div>
     </div>
-    <div class="menu-btns">
-      <button class="btn-gk" id="gkBtn">G-K</button>
-      <button class="btn-management" id="managementBtn">Management</button>
-      <button class="btn-login" id="loginBtn">Login</button>
+    
+    <!-- محتوای اصلی -->
+    <div class="main-content">
+      <!-- پنل سمت چپ: قدیمی ترین اعضای فکشن -->
+      <div class="panel">
+        <h2 class="panel-title">قدیمی ترین اعضای فکشن</h2>
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-number">1</div>
+            <div class="player-name">King44</div>
+            <div class="player-weeks">16 هفته</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">2</div>
+            <div class="player-name">Haj_(Ehsan)</div>
+            <div class="player-weeks">6 هفته</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">3</div>
+            <div class="player-name">BadPlayer</div>
+            <div class="player-weeks">3 هفته</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- پنل وسط: فکشن اوپراتور های اخیر -->
+      <div class="panel">
+        <h2 class="panel-title">فکشن اوپراتور های اخیر</h2>
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-number">1</div>
+            <div class="player-name">Kamran_Shooti</div>
+            <div class="player-weeks">اپراتور</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">2</div>
+            <div class="player-name">SkyZero</div>
+            <div class="player-weeks">اپراتور</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">3</div>
+            <div class="player-name">Mr_Fizik</div>
+            <div class="player-weeks">اپراتور</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- پنل سمت راست: سابلیدرهای فعال -->
+      <div class="panel">
+        <h2 class="panel-title">سابلیدرهای فعال فکشن</h2>
+        <div class="rank-list">
+          <div class="rank-item">
+            <div class="rank-number">1</div>
+            <div class="player-name">King44</div>
+            <div class="player-weeks">فعال</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">2</div>
+            <div class="player-name">Maslak</div>
+            <div class="player-weeks">فعال</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">3</div>
+            <div class="player-name">Hosein11</div>
+            <div class="player-weeks">فعال</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">4</div>
+            <div class="player-name">Martian</div>
+            <div class="player-weeks">فعال</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- فوتر -->
+    <div class="footer">
+      <div class="footer-info">
+        Made By Medical Management | IranMTA.ir
+      </div>
+      <div class="action-buttons">
+        <button class="action-btn" id="gkBtn">G-K</button>
+        <button class="action-btn" id="managementBtn">Management</button>
+        <button class="action-btn" id="loginBtn">Login</button>
+      </div>
     </div>
   </div>
-
+  
+  <!-- مودال G-K -->
+  <div class="modal" id="gkModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeGkModal">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="modal-title">جستجوی اطلاعات پلیر</h2>
+      <div class="login-form">
+        <input type="text" class="form-input" id="playerName" placeholder="اسم خودتان را وارد کنید (مثال: The_Soap)">
+        <button class="login-btn" id="searchBtn">Search</button>
+      </div>
+      <div class="result-container" id="resultContainer" style="margin-top: 20px;"></div>
+    </div>
+  </div>
+  
+  <!-- مودال Management -->
+  <div class="modal" id="managementModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeManagementModal">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="modal-title">ورود به پنل مدیریت</h2>
+      <div class="login-form">
+        <input type="text" class="form-input" id="tokenInput" placeholder="توکن خود را وارد کنید">
+        <button class="login-btn" id="submitToken">تایید توکن</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- مودال Login -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeLoginModal">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="modal-title">ورود به سیستم</h2>
+      <div class="login-form">
+        <input type="text" class="form-input" id="username" placeholder="نام کاربری">
+        <input type="password" class="form-input" id="password" placeholder="رمز عبور">
+        <button class="login-btn" id="submitLogin">ورود</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- هشدار -->
   <div id="warning" class="warning-box">
-    <span class="warning-icon">Warning</span>
+    <i class="fas fa-exclamation-triangle warning-icon"></i>
     <span>Shoma Dastresi Lazem Ra Nadarid!</span>
   </div>
 
-  <a href="https://iranmta.ir" target="_blank" class="footer-panel">
-    Made By Medical Management
-  </a>
-
-  <div class="search-panel" id="searchPanel">
-    <h3>اسم خودتان را وارد کنید</h3>
-    <input type="text" class="search-input" id="playerName" placeholder="مثال: The_Soap">
-    <button class="search-btn" id="searchBtn">Search</button>
-    <button class="back-btn" id="backBtn">Back</button>
-
-    <div class="result-container" id="resultContainer">
-      <div class="salary-box" id="salaryBox"></div>
-      <div class="reject-box" id="rejectBox"></div>
-      <div class="error-box" id="errorBox"></div>
-    </div>
-  </div>
-
-  <div class="login-panel" id="loginPanel">
-    <h3>ورود به پنل مدیریت</h3>
-    <input type="text" class="login-input" id="username" placeholder="نام کاربری">
-    <input type="password" class="login-input" id="password" placeholder="رمز عبور">
-    <button class="login-btn" id="submitLogin">ورود</button>
-    <button class="back-btn" id="backFromLogin">بازگشت</button>
-  </div>
-
-  <div class="management-panel" id="managementPanel">
-    <h3>پنل مدیریت</h3>
-    
-    <div class="info-box" id="factionSlots">اسلات فکشن: 20</div>
-    <div class="info-box" id="subleaderSlots">اسلات سابلیدر: 5</div>
-    <div class="info-box" id="leaderName">نام لیدر: Dr_Alireza</div>
-
-    <div class="player-form">
-      <input type="text" class="player-input" placeholder="نام پلیر" id="playerNameInput">
-      <input type="text" class="player-input" placeholder="رنک پلیر" id="playerRankInput">
-      <input type="text" class="player-input" placeholder="تعداد اسکرین شات" id="playerSSInput">
-      <input type="text" class="player-input" placeholder="حقوق" id="playerSalaryInput">
-      <button class="submit-player" id="submitPlayer">ثبت پلیر</button>
-    </div>
-
-    <button class="back-btn" id="backFromManagement" style="margin-top: 15px;">بازگشت</button>
-  </div>
-
   <script>
-    const mainMenu = document.getElementById('mainMenu');
-    const searchPanel = document.getElementById('searchPanel');
-    const loginPanel = document.getElementById('loginPanel');
-    const managementPanel = document.getElementById('managementPanel');
-    
+    // عناصر DOM
     const gkBtn = document.getElementById('gkBtn');
     const managementBtn = document.getElementById('managementBtn');
     const loginBtn = document.getElementById('loginBtn');
+    
+    const gkModal = document.getElementById('gkModal');
+    const managementModal = document.getElementById('managementModal');
+    const loginModal = document.getElementById('loginModal');
+    
+    const closeGkModal = document.getElementById('closeGkModal');
+    const closeManagementModal = document.getElementById('closeManagementModal');
+    const closeLoginModal = document.getElementById('closeLoginModal');
+    
     const searchBtn = document.getElementById('searchBtn');
-    const backBtn = document.getElementById('backBtn');
+    const submitToken = document.getElementById('submitToken');
     const submitLogin = document.getElementById('submitLogin');
-    const backFromLogin = document.getElementById('backFromLogin');
-    const backFromManagement = document.getElementById('backFromManagement');
     
     const playerNameInput = document.getElementById('playerName');
+    const tokenInput = document.getElementById('tokenInput');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     
-    const salaryBox = document.getElementById('salaryBox');
-    const rejectBox = document.getElementById('rejectBox');
-    const errorBox = document.getElementById('errorBox');
-    
+    const resultContainer = document.getElementById('resultContainer');
     const warn = document.getElementById('warning');
-
-    function switchPanel(fromPanel, toPanel) {
-      fromPanel.style.opacity = '0';
-      fromPanel.style.transform = 'translateY(-30px)';
-      setTimeout(() => {
-        fromPanel.style.display = 'none';
-        toPanel.classList.add('active');
-      }, 400);
-    }
-
-    function backToMain(fromPanel) {
-      fromPanel.classList.remove('active');
-      setTimeout(() => {
-        mainMenu.style.display = 'flex';
-        mainMenu.style.opacity = '1';
-        mainMenu.style.transform = 'translateY(0)';
-      }, 300);
-    }
-
-    function clearInputs() {
+    
+    // باز کردن مودال‌ها
+    gkBtn.addEventListener('click', () => {
+      gkModal.classList.add('active');
+    });
+    
+    managementBtn.addEventListener('click', () => {
+      managementModal.classList.add('active');
+    });
+    
+    loginBtn.addEventListener('click', () => {
+      loginModal.classList.add('active');
+    });
+    
+    // بستن مودال‌ها
+    closeGkModal.addEventListener('click', () => {
+      gkModal.classList.remove('active');
       playerNameInput.value = '';
+      resultContainer.innerHTML = '';
+    });
+    
+    closeManagementModal.addEventListener('click', () => {
+      managementModal.classList.remove('active');
+      tokenInput.value = '';
+    });
+    
+    closeLoginModal.addEventListener('click', () => {
+      loginModal.classList.remove('active');
       usernameInput.value = '';
       passwordInput.value = '';
-      clearResults();
-    }
-
-    function clearResults() {
-      [salaryBox, rejectBox, errorBox].forEach(box => {
-        box.classList.remove('show');
-        box.textContent = '';
-      });
-    }
-
-    function showWarning(msg) {
-      warn.querySelector('span:last-child').textContent = msg;
-      warn.classList.add('show');
-      setTimeout(() => warn.classList.remove('show'), 3000);
-    }
-
-    // G-K Panel
-    gkBtn.addEventListener('click', () => {
-      switchPanel(mainMenu, searchPanel);
     });
-
-    backBtn.addEventListener('click', () => {
-      clearInputs();
-      backToMain(searchPanel);
-    });
-
-    // Login Panel
-    loginBtn.addEventListener('click', () => {
-      switchPanel(mainMenu, loginPanel);
-    });
-
-    backFromLogin.addEventListener('click', () => {
-      clearInputs();
-      backToMain(loginPanel);
-    });
-
-    // Management Panel
-    managementBtn.addEventListener('click', () => {
-      showWarning('دسترسی به مدیریت نیاز به ورود دارد!');
-    });
-
-    backFromManagement.addEventListener('click', () => {
-      managementPanel.classList.remove('active');
-      setTimeout(() => {
-        mainMenu.style.display = 'flex';
-        mainMenu.style.opacity = '1';
-        mainMenu.style.transform = 'translateY(0)';
-      }, 300);
-    });
-
-    // Search Functionality
-    searchBtn.addEventListener('click', () => {
-      clearResults();
-      const name = playerNameInput.value.trim();
-      if (name === 'The_Soap') {
-        salaryBox.textContent = 'حقوق شما در فکشن 1.000.000$ میباشد';
-        salaryBox.classList.add('show');
-        rejectBox.textContent = 'تعداد اسکرین‌شات‌های رد شما: 5 تا میباشد';
-        rejectBox.classList.add('show');
-      } else if (name === '') {
-        errorBox.textContent = 'لطفاً نام را وارد کنید!';
-        errorBox.classList.add('show');
-      } else {
-        errorBox.textContent = 'پلیر یافت نشد.';
-        errorBox.classList.add('show');
+    
+    // بستن مودال با کلیک خارج از آن
+    window.addEventListener('click', (e) => {
+      if (e.target === gkModal) {
+        gkModal.classList.remove('active');
+        playerNameInput.value = '';
+        resultContainer.innerHTML = '';
+      }
+      if (e.target === managementModal) {
+        managementModal.classList.remove('active');
+        tokenInput.value = '';
+      }
+      if (e.target === loginModal) {
+        loginModal.classList.remove('active');
+        usernameInput.value = '';
+        passwordInput.value = '';
       }
     });
-
-    // Login Functionality
+    
+    // جستجوی اطلاعات پلیر
+    searchBtn.addEventListener('click', () => {
+      const name = playerNameInput.value.trim();
+      resultContainer.innerHTML = '';
+      
+      if (name === 'The_Soap') {
+        resultContainer.innerHTML = `
+          <div class="rank-item" style="background: rgba(40, 167, 69, 0.7);">
+            <div class="player-name">حقوق شما در فکشن</div>
+            <div class="player-weeks">1.000.000$</div>
+          </div>
+          <div class="rank-item" style="background: rgba(220, 53, 69, 0.7); margin-top: 10px;">
+            <div class="player-name">اسکرین‌شات‌های رد شده</div>
+            <div class="player-weeks">5 عدد</div>
+          </div>
+        `;
+      } else if (name === '') {
+        showWarning('لطفاً نام را وارد کنید!');
+      } else {
+        showWarning('پلیر یافت نشد!');
+      }
+    });
+    
+    // تایید توکن
+    submitToken.addEventListener('click', () => {
+      const token = tokenInput.value.trim();
+      
+      if (token === 'ABCD1234QERT') {
+        managementModal.classList.remove('active');
+        tokenInput.value = '';
+        showWarning('ورود به پنل مدیریت موفقیت آمیز بود!', 'success');
+      } else if (token === '') {
+        showWarning('لطفاً توکن را وارد کنید!');
+      } else {
+        showWarning('توکن وارد شده اشتباه است!');
+      }
+    });
+    
+    // ورود به سیستم
     submitLogin.addEventListener('click', () => {
       const user = usernameInput.value.trim();
       const pass = passwordInput.value;
-
+      
       if (user === 'SkyZero' && pass === 'SkyZero2020') {
-        loginPanel.classList.remove('active');
-        setTimeout(() => {
-          switchPanel(mainMenu, managementPanel);
-        }, 300);
+        loginModal.classList.remove('active');
+        usernameInput.value = '';
+        passwordInput.value = '';
+        showWarning('ورود به سیستم موفقیت آمیز بود!', 'success');
+      } else if (user === '' || pass === '') {
+        showWarning('لطفاً اطلاعات ورود را کامل کنید!');
       } else {
         showWarning('نام کاربری یا رمز عبور اشتباه است!');
       }
     });
-
-    // Player Registration
-    document.getElementById('submitPlayer').addEventListener('click', () => {
-      const name = document.getElementById('playerNameInput').value.trim();
-      if (name) {
-        alert(`پلیر ${name} با موفقیت ثبت شد!`);
-        // Clear form
-        document.getElementById('playerNameInput').value = '';
-        document.getElementById('playerRankInput').value = '';
-        document.getElementById('playerSSInput').value = '';
-        document.getElementById('playerSalaryInput').value = '';
+    
+    // تابع نمایش هشدار
+    function showWarning(msg, type = 'error') {
+      const warningBox = document.getElementById('warning');
+      const warningIcon = warningBox.querySelector('.warning-icon');
+      const warningText = warningBox.querySelector('span');
+      
+      warningText.textContent = msg;
+      
+      if (type === 'success') {
+        warningBox.style.background = 'rgba(40, 167, 69, 0.95)';
+        warningIcon.className = 'fas fa-check-circle warning-icon';
       } else {
-        showWarning('نام پلیر را وارد کنید!');
+        warningBox.style.background = 'rgba(255, 60, 60, 0.95)';
+        warningIcon.className = 'fas fa-exclamation-triangle warning-icon';
       }
-    });
-
-    // Enter key functionality
+      
+      warningBox.classList.add('show');
+      
+      setTimeout(() => {
+        warningBox.classList.remove('show');
+      }, 3000);
+    }
+    
+    // فعال کردن جستجو با کلید Enter
     playerNameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') searchBtn.click();
     });
-
+    
+    tokenInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') submitToken.click();
+    });
+    
     usernameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
-
+    
     passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
