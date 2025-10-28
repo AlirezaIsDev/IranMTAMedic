@@ -12,7 +12,7 @@
       box-sizing: border-box;
       font-family: "Vazirmatn", "Poppins", sans-serif;
     }
-    
+   
     body {
       height: 100vh;
       background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
@@ -24,13 +24,13 @@
       overflow: hidden;
       color: #333;
     }
-    
+   
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    
+   
     .container {
       width: 100%;
       max-width: 1200px;
@@ -40,7 +40,7 @@
       gap: 20px;
       padding: 20px;
     }
-    
+   
     .header {
       display: flex;
       justify-content: space-between;
@@ -52,31 +52,31 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    
+   
     .logo-section {
       display: flex;
       align-items: center;
       gap: 15px;
     }
-    
+   
     .logo {
       width: 60px;
       height: 60px;
     }
-    
+   
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-    
+   
     .title {
       font-size: 1.8rem;
       font-weight: 700;
       color: #fff;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-    
+   
     .user-info {
       display: flex;
       align-items: center;
@@ -84,7 +84,7 @@
       color: white;
       font-weight: 600;
     }
-    
+   
     .rank-badge {
       background: linear-gradient(135deg, #ff7a00, #ffb347);
       padding: 8px 15px;
@@ -92,14 +92,14 @@
       font-size: 0.9rem;
       box-shadow: 0 5px 15px rgba(255, 122, 0, 0.4);
     }
-    
+   
     .main-content {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
       flex-grow: 1;
     }
-    
+   
     .panel {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(15px);
@@ -110,7 +110,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+   
     .panel-title {
       font-size: 1.4rem;
       font-weight: 700;
@@ -121,13 +121,13 @@
       padding-bottom: 10px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-    
+   
     .rank-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-    
+   
     .rank-item {
       display: flex;
       justify-content: space-between;
@@ -139,12 +139,12 @@
       transition: all 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    
+   
     .rank-item:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: translateX(-5px);
     }
-    
+   
     .rank-number {
       background: linear-gradient(135deg, #ff7a00, #ffb347);
       width: 30px;
@@ -157,14 +157,14 @@
       font-size: 0.9rem;
       box-shadow: 0 3px 10px rgba(255, 122, 0, 0.4);
     }
-    
+   
     .player-name {
       flex: 1;
       text-align: right;
       margin-right: 15px;
       font-weight: 600;
     }
-    
+   
     .player-weeks {
       background: rgba(255, 255, 255, 0.25);
       padding: 6px 15px;
@@ -174,13 +174,46 @@
       min-width: 80px;
       text-align: center;
     }
-    
+
+    /* استایل: سابلیدر فعال - سبز */
+    .rank-item.active {
+      background: rgba(40, 167, 69, 0.35) !important;
+      border: 1px solid rgba(40, 167, 69, 0.6);
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+    .rank-item.active .player-weeks {
+      background: rgba(40, 167, 69, 0.8) !important;
+      color: white;
+    }
+
+    /* استایل: اوپراتور - آبی */
+    .rank-item.operator {
+      background: rgba(33, 150, 243, 0.35) !important;
+      border: 1px solid rgba(33, 150, 243, 0.6);
+      box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+    }
+    .rank-item.operator .player-weeks {
+      background: rgba(33, 150, 243, 0.8) !important;
+      color: white;
+    }
+
+    /* استایل: قدیمی‌ترین عضو - قرمز */
+    .rank-item.senior {
+      background: rgba(244, 67, 54, 0.35) !important;
+      border: 1px solid rgba(244, 67, 54, 0.6);
+      box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+    }
+    .rank-item.senior .player-weeks {
+      background: rgba(244, 67, 54, 0.8) !important;
+      color: white;
+    }
+   
     .login-form {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
-    
+   
     .form-input {
       width: 100%;
       padding: 14px 18px;
@@ -193,11 +226,11 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
-    
+   
     .form-input:focus {
       box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
     }
-    
+   
     .login-btn {
       padding: 14px;
       border: none;
@@ -211,13 +244,13 @@
       box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
       margin-top: 10px;
     }
-    
+   
     .login-btn:hover {
       background: #009624;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 150, 36, 0.5);
     }
-    
+   
     .footer {
       display: flex;
       justify-content: space-between;
@@ -229,17 +262,17 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    
+   
     .footer-info {
       color: white;
       font-weight: 500;
     }
-    
+   
     .action-buttons {
       display: flex;
       gap: 15px;
     }
-    
+   
     .action-btn {
       padding: 10px 20px;
       border: none;
@@ -251,14 +284,14 @@
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-    
+   
     .action-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-    
+   
     .modal {
       position: fixed;
       top: 0;
@@ -274,12 +307,12 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
-    
+   
     .modal.active {
       opacity: 1;
       visibility: visible;
     }
-    
+   
     .modal-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
@@ -292,11 +325,11 @@
       transform: scale(0.9);
       transition: all 0.3s ease;
     }
-    
+   
     .modal.active .modal-content {
       transform: scale(1);
     }
-    
+   
     .modal-title {
       color: #fff;
       font-size: 1.6rem;
@@ -304,7 +337,7 @@
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-    
+   
     .close-btn {
       position: absolute;
       top: 15px;
@@ -322,12 +355,12 @@
       font-size: 1.2rem;
       transition: all 0.3s ease;
     }
-    
+   
     .close-btn:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: rotate(90deg);
     }
-    
+   
     .warning-box {
       position: fixed;
       top: -100px;
@@ -346,28 +379,28 @@
       transition: top 0.6s ease;
       z-index: 999;
     }
-    
+   
     .warning-box.show {
       top: 25px;
     }
-    
+   
     @media (max-width: 1024px) {
       .main-content {
         grid-template-columns: 1fr 1fr;
       }
     }
-    
+   
     @media (max-width: 768px) {
       .main-content {
         grid-template-columns: 1fr;
       }
-      
+     
       .header, .footer {
         flex-direction: column;
         gap: 15px;
         text-align: center;
       }
-      
+     
       .action-buttons {
         width: 100%;
         justify-content: center;
@@ -386,11 +419,11 @@
         <h1 class="title">سیستم مدیریت Medic</h1>
       </div>
       <div class="user-info">
-        <div class="rank-badge">Rank: Owner</div>
-        <div>خوش آمدید (SkyZero)</div>
+        <div class="rank-badge">Rank: Member</div>
+        <div>خوش آمدید</div>
       </div>
     </div>
-    
+   
     <!-- محتوای اصلی -->
     <div class="main-content">
       <!-- پنل سمت چپ: قدیمی ترین اعضای فکشن -->
@@ -414,29 +447,34 @@
           </div>
         </div>
       </div>
-      
+     
       <!-- پنل وسط: فکشن اوپراتور های اخیر -->
       <div class="panel">
         <h2 class="panel-title">فکشن اوپراتور های اخیر</h2>
         <div class="rank-list">
           <div class="rank-item">
             <div class="rank-number">1</div>
-            <div class="player-name">Kamran_Shooti</div>
+            <div class="player-name">iMatin</div>
             <div class="player-weeks">اپراتور</div>
           </div>
           <div class="rank-item">
             <div class="rank-number">2</div>
-            <div class="player-name">SkyZero</div>
+            <div class="player-name">Kamran_Shooti</div>
             <div class="player-weeks">اپراتور</div>
           </div>
           <div class="rank-item">
             <div class="rank-number">3</div>
+            <div class="player-name">SkyZero</div>
+            <div class="player-weeks">اپراتور</div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-number">4</div>
             <div class="player-name">Mr_Fizik</div>
             <div class="player-weeks">اپراتور</div>
           </div>
         </div>
       </div>
-      
+     
       <!-- پنل سمت راست: سابلیدرهای فعال -->
       <div class="panel">
         <h2 class="panel-title">سابلیدرهای فعال فکشن</h2>
@@ -464,7 +502,7 @@
         </div>
       </div>
     </div>
-    
+   
     <!-- فوتر -->
     <div class="footer">
       <div class="footer-info">
@@ -477,7 +515,7 @@
       </div>
     </div>
   </div>
-  
+ 
   <!-- مودال G-K -->
   <div class="modal" id="gkModal">
     <div class="modal-content">
@@ -492,7 +530,7 @@
       <div class="result-container" id="resultContainer" style="margin-top: 20px;"></div>
     </div>
   </div>
-  
+ 
   <!-- مودال Management -->
   <div class="modal" id="managementModal">
     <div class="modal-content">
@@ -506,7 +544,7 @@
       </div>
     </div>
   </div>
-  
+ 
   <!-- مودال Login -->
   <div class="modal" id="loginModal">
     <div class="modal-content">
@@ -521,7 +559,7 @@
       </div>
     </div>
   </div>
-  
+ 
   <!-- هشدار -->
   <div id="warning" class="warning-box">
     <i class="fas fa-exclamation-triangle warning-icon"></i>
@@ -533,58 +571,58 @@
     const gkBtn = document.getElementById('gkBtn');
     const managementBtn = document.getElementById('managementBtn');
     const loginBtn = document.getElementById('loginBtn');
-    
+   
     const gkModal = document.getElementById('gkModal');
     const managementModal = document.getElementById('managementModal');
     const loginModal = document.getElementById('loginModal');
-    
+   
     const closeGkModal = document.getElementById('closeGkModal');
     const closeManagementModal = document.getElementById('closeManagementModal');
     const closeLoginModal = document.getElementById('closeLoginModal');
-    
+   
     const searchBtn = document.getElementById('searchBtn');
     const submitToken = document.getElementById('submitToken');
     const submitLogin = document.getElementById('submitLogin');
-    
+   
     const playerNameInput = document.getElementById('playerName');
     const tokenInput = document.getElementById('tokenInput');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
-    
+   
     const resultContainer = document.getElementById('resultContainer');
     const warn = document.getElementById('warning');
-    
+   
     // باز کردن مودال‌ها
     gkBtn.addEventListener('click', () => {
       gkModal.classList.add('active');
     });
-    
+   
     managementBtn.addEventListener('click', () => {
       managementModal.classList.add('active');
     });
-    
+   
     loginBtn.addEventListener('click', () => {
       loginModal.classList.add('active');
     });
-    
+   
     // بستن مودال‌ها
     closeGkModal.addEventListener('click', () => {
       gkModal.classList.remove('active');
       playerNameInput.value = '';
       resultContainer.innerHTML = '';
     });
-    
+   
     closeManagementModal.addEventListener('click', () => {
       managementModal.classList.remove('active');
       tokenInput.value = '';
     });
-    
+   
     closeLoginModal.addEventListener('click', () => {
       loginModal.classList.remove('active');
       usernameInput.value = '';
       passwordInput.value = '';
     });
-    
+   
     // بستن مودال با کلیک خارج از آن
     window.addEventListener('click', (e) => {
       if (e.target === gkModal) {
@@ -602,12 +640,12 @@
         passwordInput.value = '';
       }
     });
-    
+   
     // جستجوی اطلاعات پلیر
     searchBtn.addEventListener('click', () => {
       const name = playerNameInput.value.trim();
       resultContainer.innerHTML = '';
-      
+     
       if (name === 'The_Soap') {
         resultContainer.innerHTML = `
           <div class="rank-item" style="background: rgba(40, 167, 69, 0.7);">
@@ -625,11 +663,11 @@
         showWarning('پلیر یافت نشد!');
       }
     });
-    
+   
     // تایید توکن
     submitToken.addEventListener('click', () => {
       const token = tokenInput.value.trim();
-      
+     
       if (token === 'ABCD1234QERT') {
         managementModal.classList.remove('active');
         tokenInput.value = '';
@@ -640,12 +678,12 @@
         showWarning('توکن وارد شده اشتباه است!');
       }
     });
-    
+   
     // ورود به سیستم
     submitLogin.addEventListener('click', () => {
       const user = usernameInput.value.trim();
       const pass = passwordInput.value;
-      
+     
       if (user === 'SkyZero' && pass === 'SkyZero2020') {
         loginModal.classList.remove('active');
         usernameInput.value = '';
@@ -657,15 +695,15 @@
         showWarning('نام کاربری یا رمز عبور اشتباه است!');
       }
     });
-    
+   
     // تابع نمایش هشدار
     function showWarning(msg, type = 'error') {
       const warningBox = document.getElementById('warning');
       const warningIcon = warningBox.querySelector('.warning-icon');
       const warningText = warningBox.querySelector('span');
-      
+     
       warningText.textContent = msg;
-      
+     
       if (type === 'success') {
         warningBox.style.background = 'rgba(40, 167, 69, 0.95)';
         warningIcon.className = 'fas fa-check-circle warning-icon';
@@ -673,29 +711,47 @@
         warningBox.style.background = 'rgba(255, 60, 60, 0.95)';
         warningIcon.className = 'fas fa-exclamation-triangle warning-icon';
       }
-      
+     
       warningBox.classList.add('show');
-      
+     
       setTimeout(() => {
         warningBox.classList.remove('show');
       }, 3000);
     }
-    
+   
     // فعال کردن جستجو با کلید Enter
     playerNameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') searchBtn.click();
     });
-    
+   
     tokenInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitToken.click();
     });
-    
+   
     usernameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
-    
+   
     passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
+    });
+
+    // اعمال رنگ‌ها به صورت خودکار بعد از لود صفحه
+    document.addEventListener('DOMContentLoaded', () => {
+      const allItems = document.querySelectorAll('.rank-item .player-weeks');
+
+      allItems.forEach(item => {
+        const text = item.textContent.trim();
+        const parent = item.parentElement;
+
+        if (text === 'فعال') {
+          parent.classList.add('active'); // سبز
+        } else if (text === 'اپراتور') {
+          parent.classList.add('operator'); // آبی
+        } else if (text.includes('هفته')) {
+          parent.classList.add('senior'); // قرمز
+        }
+      });
     });
   </script>
 </body>
