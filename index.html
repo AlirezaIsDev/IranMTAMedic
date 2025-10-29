@@ -86,11 +86,26 @@
     }
   
     .rank-badge {
-      background: linear-gradient(135deg, #ff7a00, #ffb347);
       padding: 8px 15px;
       border-radius: 20px;
       font-size: 0.9rem;
-      box-shadow: 0 5px 15px rgba(255, 122, 0, 0.4);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      color: white;
+      font-weight: bold;
+    }
+
+    .rank-badge.member {
+      background: linear-gradient(135deg, #6c757d, #adb5bd);
+    }
+
+    .rank-badge.assistant {
+      background: linear-gradient(135deg, #e91e63, #f48fb1);
+      box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+    }
+
+    .rank-badge.admin {
+      background: linear-gradient(135deg, #9c27b0, #ce93d8);
+      box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
     }
 
     .rank-badge.owner {
@@ -1055,8 +1070,8 @@
         <h1 class="title">سیستم مدیریت Medic</h1>
       </div>
       <div class="user-info">
-        <div class="rank-badge" id="headerRank">Rank: Member</div>
-        <div>خوش آمدید</div>
+        <div class="rank-badge member" id="headerRank">Rank: Member</div>
+        <div id="welcomeText">خوش آمدید</div>
       </div>
     </div>
   
@@ -1161,7 +1176,7 @@
       </button>
       <h2 class="modal-title">جستجوی اطلاعات پلیر</h2>
       <div class="login-form">
-        <input type="text" class="form-input" id="playerName" placeholder="اسم خودتان را وارد کنید (مثال: Dr_Alireza)">
+        <input type="text" class="form-input" id="playerName" placeholder="اسم خودتان را وارد کنید (مثال: The_Soap)">
         <button class="login-btn" id="searchBtn">Search</button>
       </div>
       <div class="result-container" id="resultContainer" style="margin-top: 20px;"></div>
@@ -1179,7 +1194,7 @@
         <div class="rank-list">
           <div class="rank-item admin">
             <div class="rank-number">1</div>
-            <div class="player-name">MaXiMoV</div>
+            <div class="player-name">MaxiMoV</div>
             <div class="player-weeks">Administrator</div>
           </div>
           <div class="rank-item manager">
@@ -1424,6 +1439,7 @@
 
     // عناصر جدید برای مدیریت کاربران مختلف
     const headerRank = document.getElementById('headerRank');
+    const welcomeText = document.getElementById('welcomeText');
     const userPanelTitle = document.getElementById('userPanelTitle');
     const displayedUsername = document.getElementById('displayedUsername');
     const userWarnings = document.getElementById('userWarnings');
@@ -1437,8 +1453,9 @@
     const users = {
         'The_Soap': {
             password: 'The_Soap2020',
-            rank: 'Member',
-            displayRank: 'Member ( R-1 )',
+            rank: 'Faction Admin',
+            rankClass: 'admin',
+            displayRank: 'Faction Admin',
             warnings: '0/3',
             weeks: '1',
             meetings: '1',
@@ -1447,15 +1464,19 @@
         },
         'SkyZero': {
             password: 'SkyZero2020',
-            rank: 'Owner',
-            displayRank: 'Owner ( Full )',
+            rank: 'Assistant Developer',
+            rankClass: 'assistant',
+            displayRank: 'Assistant Developer',
             warnings: '0/0',
             weeks: '52',
             meetings: '48',
             userRank: '1',
-            isOwner: true
+            isOwner: false
         }
     };
+
+    // متغیر برای ذخیره وضعیت لاگین
+    let currentUser = null;
 
     // باز کردن مودال‌ها
     gkBtn.addEventListener('click', () => {
@@ -1502,9 +1523,6 @@
 
     userBackBtn.addEventListener('click', () => {
       userPanel.classList.remove('active');
-      // بازنشانی به حالت پیش‌فرض
-      headerRank.textContent = 'Rank: Member';
-      headerRank.className = 'rank-badge';
     });
 
     // بستن مودال با کلیک خارج از آن
@@ -1531,8 +1549,6 @@
       }
       if (e.target === userPanel) {
         userPanel.classList.remove('active');
-        headerRank.textContent = 'Rank: Member';
-        headerRank.className = 'rank-badge';
       }
     });
 
@@ -1587,6 +1603,7 @@
     
       if (users[user] && users[user].password === pass) {
         const userData = users[user];
+        currentUser = user;
         
         // به‌روزرسانی اطلاعات نمایش
         displayedUsername.textContent = user;
@@ -1596,17 +1613,17 @@
         userRank.textContent = userData.userRank;
         userRankDisplay.textContent = userData.displayRank;
         
-        // به‌روزرسانی هدر
+        // به‌روزرسانی هدر با رنک و رنگ مناسب
         headerRank.textContent = `Rank: ${userData.rank}`;
+        headerRank.className = `rank-badge ${userData.rankClass}`;
+        welcomeText.textContent = `خوش آمدید ${user}`;
         
         // مدیریت ویژگی‌های Owner
         if (userData.isOwner) {
-          headerRank.classList.add('owner');
           userPanelTitle.textContent = 'پنل مدیریت Owner';
           userRankDisplay.classList.add('owner');
           ownerFeatures.style.display = 'block';
         } else {
-          headerRank.className = 'rank-badge';
           userPanelTitle.textContent = 'پنل کاربری Medic';
           userRankDisplay.className = 'rank-value';
           ownerFeatures.style.display = 'none';
