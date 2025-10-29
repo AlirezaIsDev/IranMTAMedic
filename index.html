@@ -92,6 +92,12 @@
       font-size: 0.9rem;
       box-shadow: 0 5px 15px rgba(255, 122, 0, 0.4);
     }
+
+    .rank-badge.owner {
+      background: linear-gradient(135deg, #ffd700, #ffed4e);
+      color: #333;
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    }
   
     .main-content {
       display: grid;
@@ -174,7 +180,7 @@
       min-width: 80px;
       text-align: center;
     }
-    /* استایل: سابلیدر فعال - سبز */
+    
     .rank-item.active {
       background: rgba(40, 167, 69, 0.35) !important;
       border: 1px solid rgba(40, 167, 69, 0.6);
@@ -184,7 +190,7 @@
       background: rgba(40, 167, 69, 0.8) !important;
       color: white;
     }
-    /* استایل: اوپراتور - آبی */
+    
     .rank-item.operator {
       background: rgba(33, 150, 243, 0.35) !important;
       border: 1px solid rgba(33, 150, 243, 0.6);
@@ -194,7 +200,7 @@
       background: rgba(33, 150, 243, 0.8) !important;
       color: white;
     }
-    /* استایل: قدیمی‌ترین عضو - قرمز */
+    
     .rank-item.senior {
       background: rgba(244, 67, 54, 0.35) !important;
       border: 1px solid rgba(244, 67, 54, 0.6);
@@ -659,6 +665,24 @@
       border-radius: 10px;
       font-weight: bold;
     }
+
+    .owner-features {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .owner-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 215, 0, 0.2);
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      color: #ffd700;
+      font-weight: 600;
+    }
   
     .chat-panel {
       background: rgba(255, 255, 255, 0.15);
@@ -703,6 +727,11 @@
       background: rgba(33, 150, 243, 0.3);
       text-align: center;
       font-style: italic;
+    }
+
+    .message.owner {
+      background: rgba(255, 215, 0, 0.3);
+      border-left: 3px solid #ffd700;
     }
   
     .chat-input-container {
@@ -800,6 +829,11 @@
       border-radius: 12px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
+
+    .rank-value.owner {
+      background: rgba(255, 215, 0, 0.4);
+      color: #ffd700;
+    }
   
     .warning-panel {
       background: rgba(255, 255, 255, 0.15);
@@ -887,7 +921,7 @@
         <h1 class="title">سیستم مدیریت Medic</h1>
       </div>
       <div class="user-info">
-        <div class="rank-badge">Rank: Member</div>
+        <div class="rank-badge" id="headerRank">Rank: Member</div>
         <div>خوش آمدید</div>
       </div>
     </div>
@@ -1083,31 +1117,46 @@
   <div class="user-panel" id="userPanel">
     <div class="user-content">
       <div class="user-header">
-        <h2 class="user-title">پنل کاربری Medic</h2>
+        <h2 class="user-title" id="userPanelTitle">پنل کاربری Medic</h2>
         <button class="user-back-btn" id="userBackBtn">بازگشت</button>
       </div>
       <div class="user-body">
         <!-- پنل سمت راست: اطلاعات کاربر -->
         <div class="user-info-panel">
           <div class="user-name-display">
-            <div class="user-name">The_Soap</div>
+            <div class="user-name" id="displayedUsername">The_Soap</div>
           </div>
           <div class="user-stats">
             <div class="stat-item">
               <span class="stat-label">افدبل های شما:</span>
-              <span class="stat-value">0/3</span>
+              <span class="stat-value" id="userWarnings">0/3</span>
             </div>
             <div class="stat-item">
               <span class="stat-label">تعداد هفته شما:</span>
-              <span class="stat-value">1</span>
+              <span class="stat-value" id="userWeeks">1</span>
             </div>
             <div class="stat-item">
               <span class="stat-label">تعداد میتینگ شما:</span>
-              <span class="stat-value">1</span>
+              <span class="stat-value" id="userMeetings">1</span>
             </div>
             <div class="stat-item">
               <span class="stat-label">رنک شما:</span>
-              <span class="stat-value">1</span>
+              <span class="stat-value" id="userRank">1</span>
+            </div>
+          </div>
+          <!-- ویژگی‌های ویژه Owner -->
+          <div class="owner-features" id="ownerFeatures" style="display: none;">
+            <div class="owner-feature">
+              <i class="fas fa-crown"></i>
+              <span>دسترسی کامل به سیستم</span>
+            </div>
+            <div class="owner-feature">
+              <i class="fas fa-shield-alt"></i>
+              <span>مدیریت کاربران</span>
+            </div>
+            <div class="owner-feature">
+              <i class="fas fa-cog"></i>
+              <span>تنظیمات پیشرفته</span>
             </div>
           </div>
         </div>
@@ -1135,7 +1184,7 @@
         <div class="rank-panel">
           <div class="rank-display">
             <div class="rank-title">رنک شما</div>
-            <div class="rank-value">Member ( R-1 )</div>
+            <div class="rank-value" id="userRankDisplay">Member ( R-1 )</div>
           </div>
         </div>
         
@@ -1191,6 +1240,41 @@
     const chatMessages = document.getElementById('chatMessages');
     const warn = document.getElementById('warning');
 
+    // عناصر جدید برای مدیریت کاربران مختلف
+    const headerRank = document.getElementById('headerRank');
+    const userPanelTitle = document.getElementById('userPanelTitle');
+    const displayedUsername = document.getElementById('displayedUsername');
+    const userWarnings = document.getElementById('userWarnings');
+    const userWeeks = document.getElementById('userWeeks');
+    const userMeetings = document.getElementById('userMeetings');
+    const userRank = document.getElementById('userRank');
+    const userRankDisplay = document.getElementById('userRankDisplay');
+    const ownerFeatures = document.getElementById('ownerFeatures');
+
+    // اطلاعات کاربران
+    const users = {
+        'The_Soap': {
+            password: 'The_Soap2020',
+            rank: 'Member',
+            displayRank: 'Member ( R-1 )',
+            warnings: '0/3',
+            weeks: '1',
+            meetings: '1',
+            userRank: '1',
+            isOwner: false
+        },
+        'SkyZero': {
+            password: 'SkyZero2020',
+            rank: 'Owner',
+            displayRank: 'Owner ( Full )',
+            warnings: '0/0',
+            weeks: '52',
+            meetings: '48',
+            userRank: '1',
+            isOwner: true
+        }
+    };
+
     // باز کردن مودال‌ها
     gkBtn.addEventListener('click', () => {
       gkModal.classList.add('active');
@@ -1228,6 +1312,9 @@
 
     userBackBtn.addEventListener('click', () => {
       userPanel.classList.remove('active');
+      // بازنشانی به حالت پیش‌فرض
+      headerRank.textContent = 'Rank: Member';
+      headerRank.className = 'rank-badge';
     });
 
     // بستن مودال با کلیک خارج از آن
@@ -1251,6 +1338,8 @@
       }
       if (e.target === userPanel) {
         userPanel.classList.remove('active');
+        headerRank.textContent = 'Rank: Member';
+        headerRank.className = 'rank-badge';
       }
     });
 
@@ -1259,7 +1348,8 @@
       const name = playerNameInput.value.trim();
       resultContainer.innerHTML = '';
     
-      if (name === 'The_Soap') {
+      if (name === 'The_Soap' || name === 'SkyZero') {
+        const userData = users[name];
         resultContainer.innerHTML = `
           <div class="rank-item" style="background: rgba(40, 167, 69, 0.7);">
             <div class="player-name">حقوق شما در فکشن</div>
@@ -1268,6 +1358,10 @@
           <div class="rank-item" style="background: rgba(220, 53, 69, 0.7); margin-top: 10px;">
             <div class="player-name">اسکرین‌شات‌های رد شده</div>
             <div class="player-weeks">5 عدد</div>
+          </div>
+          <div class="rank-item" style="background: rgba(33, 150, 243, 0.7); margin-top: 10px;">
+            <div class="player-name">رنک شما</div>
+            <div class="player-weeks">${userData.displayRank}</div>
           </div>
         `;
       } else if (name === '') {
@@ -1298,12 +1392,38 @@
       const user = usernameInput.value.trim();
       const pass = passwordInput.value;
     
-      if (user === 'The_Soap' && pass === 'The_Soap2020') {
+      if (users[user] && users[user].password === pass) {
+        const userData = users[user];
+        
+        // به‌روزرسانی اطلاعات نمایش
+        displayedUsername.textContent = user;
+        userWarnings.textContent = userData.warnings;
+        userWeeks.textContent = userData.weeks;
+        userMeetings.textContent = userData.meetings;
+        userRank.textContent = userData.userRank;
+        userRankDisplay.textContent = userData.displayRank;
+        
+        // به‌روزرسانی هدر
+        headerRank.textContent = `Rank: ${userData.rank}`;
+        
+        // مدیریت ویژگی‌های Owner
+        if (userData.isOwner) {
+          headerRank.classList.add('owner');
+          userPanelTitle.textContent = 'پنل مدیریت Owner';
+          userRankDisplay.classList.add('owner');
+          ownerFeatures.style.display = 'block';
+        } else {
+          headerRank.className = 'rank-badge';
+          userPanelTitle.textContent = 'پنل کاربری Medic';
+          userRankDisplay.className = 'rank-value';
+          ownerFeatures.style.display = 'none';
+        }
+        
         loginModal.classList.remove('active');
         userPanel.classList.add('active');
         usernameInput.value = '';
         passwordInput.value = '';
-        showWarning('ورود به سیستم موفقیت آمیز بود!', 'success');
+        showWarning(`ورود ${user} موفقیت آمیز بود!`, 'success');
       } else if (user === '' || pass === '') {
         showWarning('لطفاً اطلاعات ورود را کامل کنید!');
       } else {
@@ -1365,8 +1485,16 @@
       if (message === '') return;
       
       const messageElement = document.createElement('div');
-      messageElement.className = 'message';
-      messageElement.textContent = `The_Soap: ${message}`;
+      const currentUser = displayedUsername.textContent;
+      
+      if (users[currentUser] && users[currentUser].isOwner) {
+        messageElement.className = 'message owner';
+        messageElement.innerHTML = `<strong>${currentUser} (Owner):</strong> ${message}`;
+      } else {
+        messageElement.className = 'message';
+        messageElement.textContent = `${currentUser}: ${message}`;
+      }
+      
       chatMessages.appendChild(messageElement);
       
       chatInput.value = '';
