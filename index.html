@@ -14,17 +14,18 @@
       font-family: "Vazirmatn", "Poppins", sans-serif;
     }
   
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
-      background-size: 300% 300%;
-      animation: gradientMove 10s ease infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #333;
-    }
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
+  background-size: 300% 300%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;        /* اسکرول عمودی فعال شد */
+  overflow-x: hidden;      /* اسکرول افقی غیرفعال بمونه (اختیاری) */
+  color: #333;
+}
   
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
