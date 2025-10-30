@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IranMTA | Medic</title>
   <link rel="icon" type="image/png" href="https://forum.iranmta.ir/uploads/monthly_2019_05/medic_logo.png.7bc027dc08651ef9f14e3838e641f4ef.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,191 +13,200 @@
       box-sizing: border-box;
       font-family: "Vazirmatn", "Poppins", sans-serif;
     }
-  
-body {
-  height: 100vh;
-  background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
-  background-size: 300% 300%;
-  animation: gradientMove 10s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;        /* اسکرول عمودی فعال شد */
-  overflow-x: hidden;      /* اسکرول افقی غیرفعال بمونه (اختیاری) */
-  color: #333;
-}
-  
+
+    :root {
+      font-size: 14px;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(135deg, #ff7a00, #ffb347, #ffffff);
+      background-size: 300% 300%;
+      animation: gradientMove 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #333;
+    }
+
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-  
+
     .container {
-      width: 100%;
+      width: 95vw;
+      height: 95vh;
       max-width: 1200px;
-      height: 90vh;
+      max-height: 800px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      padding: 20px;
+      gap: 15px;
+      padding: 15px;
     }
-  
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 15px 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 12px 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
+      min-height: 70px;
     }
-  
+
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
-  
+
     .logo {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
     }
-  
+
     .logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-  
+
     .title {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #fff;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .user-info {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
       color: white;
       font-weight: 600;
-    }
-  
-    .rank-badge {
-      padding: 8px 15px;
-      border-radius: 20px;
       font-size: 0.9rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .rank-badge {
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       color: white;
       font-weight: bold;
     }
-
     .rank-badge.member {
       background: linear-gradient(135deg, #6c757d, #adb5bd);
     }
-
     .rank-badge.assistant {
       background: linear-gradient(135deg, #e91e63, #f48fb1);
       box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
     }
-
     .rank-badge.admin {
       background: linear-gradient(135deg, #9c27b0, #ce93d8);
       box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
     }
-
     .rank-badge.owner {
       background: linear-gradient(135deg, #ffd700, #ffed4e);
       color: #333;
       box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
     }
-  
+
     .main-content {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 15px;
       flex-grow: 1;
+      min-height: 0;
     }
-  
+
     .panel {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
-  
+
     .panel-title {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .rank-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
+      overflow-y: auto;
+      flex-grow: 1;
     }
-  
+
     .rank-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255, 255, 255, 0.15);
-      padding: 15px;
-      border-radius: 15px;
+      padding: 12px;
+      border-radius: 12px;
       color: white;
       transition: all 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      min-height: 50px;
     }
-  
+
     .rank-item:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: translateX(-5px);
     }
-  
+
     .rank-number {
       background: linear-gradient(135deg, #ff7a00, #ffb347);
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: 0.9rem;
-      box-shadow: 0 3px 10px rgba(255, 122, 0, 0.4);
+      font-size: 0.8rem;
+      box-shadow: 0 3px 8px rgba(255, 122, 0, 0.4);
     }
-  
+
     .player-name {
       flex: 1;
       text-align: right;
-      margin-right: 15px;
+      margin-right: 12px;
       font-weight: 600;
+      font-size: 0.9rem;
     }
-  
+
     .player-weeks {
       background: rgba(255, 255, 255, 0.25);
-      padding: 6px 15px;
-      border-radius: 20px;
-      font-size: 0.9rem;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
       font-weight: bold;
-      min-width: 80px;
+      min-width: 70px;
       text-align: center;
     }
-    
+   
     .rank-item.active {
       background: rgba(40, 167, 69, 0.35);
       border: 1px solid rgba(40, 167, 69, 0.6);
@@ -207,7 +216,7 @@ body {
       background: rgba(40, 167, 69, 0.8);
       color: white;
     }
-    
+   
     .rank-item.operator {
       background: rgba(33, 150, 243, 0.35);
       border: 1px solid rgba(33, 150, 243, 0.6);
@@ -217,7 +226,7 @@ body {
       background: rgba(33, 150, 243, 0.8);
       color: white;
     }
-    
+   
     .rank-item.senior {
       background: rgba(244, 67, 54, 0.35);
       border: 1px solid rgba(244, 67, 54, 0.6);
@@ -227,7 +236,6 @@ body {
       background: rgba(244, 67, 54, 0.8);
       color: white;
     }
-
     .rank-item.admin {
       background: rgba(156, 39, 176, 0.35);
       border: 1px solid rgba(156, 39, 176, 0.6);
@@ -237,7 +245,6 @@ body {
       background: rgba(156, 39, 176, 0.8);
       color: white;
     }
-
     .rank-item.manager {
       background: rgba(255, 152, 0, 0.35);
       border: 1px solid rgba(255, 152, 0, 0.6);
@@ -247,7 +254,6 @@ body {
       background: rgba(255, 152, 0, 0.8);
       color: white;
     }
-
     .rank-item.governor {
       background: rgba(0, 150, 136, 0.35);
       border: 1px solid rgba(0, 150, 136, 0.6);
@@ -257,7 +263,6 @@ body {
       background: rgba(0, 150, 136, 0.8);
       color: white;
     }
-
     .rank-item.developer {
       background: rgba(103, 58, 183, 0.35);
       border: 1px solid rgba(103, 58, 183, 0.6);
@@ -267,7 +272,6 @@ body {
       background: rgba(103, 58, 183, 0.8);
       color: white;
     }
-
     .rank-item.assistant {
       background: rgba(233, 30, 99, 0.35);
       border: 1px solid rgba(233, 30, 99, 0.6);
@@ -277,91 +281,94 @@ body {
       background: rgba(233, 30, 99, 0.8);
       color: white;
     }
-  
+
     .login-form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
-  
+
     .form-input {
       width: 100%;
-      padding: 14px 18px;
+      padding: 12px 15px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #333;
       outline: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
-  
+
     .form-input:focus {
       box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
     }
-  
+
     .login-btn {
-      padding: 14px;
+      padding: 12px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: #00c853;
       color: white;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
-      margin-top: 10px;
+      margin-top: 8px;
     }
-  
+
     .login-btn:hover {
       background: #009624;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 150, 36, 0.5);
     }
-  
+
     .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 15px 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 12px 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
+      min-height: 60px;
     }
-  
+
     .footer-info {
       color: white;
       font-weight: 500;
+      font-size: 0.9rem;
     }
-  
+
     .action-buttons {
       display: flex;
-      gap: 15px;
+      gap: 10px;
     }
-  
+
     .action-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
     }
-  
+
     .action-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .modal {
       position: fixed;
       top: 0;
@@ -377,37 +384,37 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .modal.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .modal-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 90%;
-      max-width: 500px;
+      max-width: 450px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
       transition: all 0.3s ease;
     }
-  
+
     .modal.active .modal-content {
       transform: scale(1);
     }
-  
+
     .modal-title {
       color: #fff;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .close-btn {
       position: absolute;
       top: 15px;
@@ -415,22 +422,22 @@ body {
       background: rgba(255, 255, 255, 0.2);
       border: none;
       color: white;
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
     }
-  
+
     .close-btn:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: rotate(90deg);
     }
-  
+
     .warning-box {
       position: fixed;
       top: -100px;
@@ -438,22 +445,22 @@ body {
       transform: translateX(-50%);
       background: rgba(255, 60, 60, 0.95);
       color: #fff;
-      padding: 15px 30px;
-      border-radius: 15px;
+      padding: 12px 25px;
+      border-radius: 12px;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
       transition: top 0.6s ease;
       z-index: 999;
     }
-  
+
     .warning-box.show {
-      top: 25px;
+      top: 20px;
     }
-  
+
     .management-panel {
       position: fixed;
       top: 0;
@@ -469,20 +476,20 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .management-panel.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .management-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 95%;
-      max-width: 1200px;
-      height: 90%;
+      max-width: 1000px;
+      height: 85%;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
@@ -490,31 +497,31 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
+
     .management-panel.active .management-content {
       transform: scale(1);
     }
-  
+
     .management-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .management-title {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .back-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
@@ -522,77 +529,78 @@ body {
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-  
+
     .back-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .management-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 20px;
       flex-grow: 1;
       overflow-y: auto;
       padding: 10px;
     }
-  
+
     .management-section {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 25px;
+      border-radius: 15px;
+      padding: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       flex-direction: column;
     }
-  
+
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin-bottom: 15px;
     }
-  
+
     .form-label {
       color: white;
       font-weight: 600;
       margin-bottom: 5px;
+      font-size: 0.9rem;
     }
-  
+
     .submit-btn {
-      padding: 14px;
+      padding: 12px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: #00c853;
       color: white;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
-      margin-top: 10px;
+      margin-top: 8px;
     }
-  
+
     .submit-btn:hover {
       background: #009624;
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 150, 36, 0.5);
     }
-  
+
     .user-panel {
       position: fixed;
       top: 0;
@@ -608,20 +616,20 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .user-panel.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .user-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 95%;
-      max-width: 1200px;
-      height: 90%;
+      max-width: 1000px;
+      height: 85%;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
@@ -629,31 +637,31 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
+
     .user-panel.active .user-content {
       transform: scale(1);
     }
-  
+
     .user-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .user-title {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .user-back-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
@@ -661,179 +669,179 @@ body {
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-  
+
     .user-back-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .user-body {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
       grid-template-rows: auto 1fr auto;
-      gap: 20px;
+      gap: 15px;
       flex-grow: 1;
       overflow-y: auto;
       padding: 10px;
     }
-  
+
     .user-info-panel {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       flex-direction: column;
     }
-  
+
     .user-name-display {
       background: rgba(255, 255, 255, 0.25);
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 12px;
+      padding: 15px;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-  
+
     .user-name {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #fff;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .user-stats {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
-  
+
     .stat-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(255, 255, 255, 0.1);
-      padding: 12px 15px;
-      border-radius: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
       color: white;
+      font-size: 0.9rem;
     }
-  
+
     .stat-label {
       font-weight: 600;
     }
-  
+
     .stat-value {
       background: rgba(255, 255, 255, 0.25);
-      padding: 5px 12px;
-      border-radius: 10px;
+      padding: 4px 10px;
+      border-radius: 8px;
       font-weight: bold;
     }
-
     .owner-features {
-      margin-top: 20px;
-      padding-top: 15px;
+      margin-top: 15px;
+      padding-top: 12px;
       border-top: 2px solid rgba(255, 255, 255, 0.3);
     }
-
     .owner-feature {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: rgba(255, 215, 0, 0.2);
-      padding: 10px 15px;
-      border-radius: 10px;
-      margin-bottom: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 6px;
       color: #ffd700;
       font-weight: 600;
+      font-size: 0.85rem;
     }
-  
+
     .chat-panel {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       flex-direction: column;
     }
-  
+
     .chat-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .chat-messages {
       flex-grow: 1;
       overflow-y: auto;
-      margin-bottom: 15px;
-      padding: 10px;
+      margin-bottom: 12px;
+      padding: 8px;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      max-height: 300px;
+      border-radius: 10px;
+      max-height: 250px;
     }
-  
+
     .message {
       background: rgba(255, 255, 255, 0.2);
-      padding: 10px 15px;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 8px;
       color: white;
+      font-size: 0.9rem;
     }
-  
+
     .message.system {
       background: rgba(33, 150, 243, 0.3);
       text-align: center;
       font-style: italic;
     }
-
     .message.owner {
       background: rgba(255, 215, 0, 0.3);
       border-left: 3px solid #ffd700;
     }
-  
+
     .chat-input-container {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
-  
+
     .chat-input {
       flex-grow: 1;
-      padding: 12px 15px;
+      padding: 10px 12px;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.9);
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #333;
       outline: none;
     }
-  
+
     .chat-send-btn {
-      padding: 12px 20px;
+      padding: 10px 16px;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       background: #00c853;
       color: white;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
     }
-  
+
     .chat-send-btn:hover {
       background: #009624;
     }
-  
+
     .join-date-panel {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
@@ -842,97 +850,95 @@ body {
       justify-content: center;
       text-align: center;
     }
-  
+
     .join-date-title {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .join-date-value {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
       background: rgba(255, 255, 255, 0.25);
-      padding: 15px 25px;
-      border-radius: 15px;
+      padding: 12px 20px;
+      border-radius: 12px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .rank-panel {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-  
+
     .rank-display {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-  
+
     .rank-title {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-  
-    .rank-value {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.25);
-      padding: 10px 20px;
-      border-radius: 12px;
+      margin-bottom: 8px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
+    .rank-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
     .rank-value.owner {
       background: rgba(255, 215, 0, 0.4);
       color: #ffd700;
     }
-  
+
     .warning-panel {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-  
+
     .warning-display {
       text-align: center;
     }
-  
+
     .warning-title {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-  
-    .warning-value {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.25);
-      padding: 10px 20px;
-      border-radius: 12px;
+      margin-bottom: 8px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
+    .warning-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
     .staffs-panel {
       position: fixed;
       top: 0;
@@ -948,20 +954,20 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .staffs-panel.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .staffs-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 95%;
-      max-width: 800px;
-      height: 80%;
+      max-width: 700px;
+      height: 75%;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
@@ -969,31 +975,31 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
+
     .staffs-panel.active .staffs-content {
       transform: scale(1);
     }
-  
+
     .staffs-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .staffs-title {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .staffs-back-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
@@ -1001,20 +1007,20 @@ body {
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-  
+
     .staffs-back-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .staffs-body {
       flex-grow: 1;
       overflow-y: auto;
       padding: 10px;
     }
-  
+
     .news-panel {
       position: fixed;
       top: 0;
@@ -1030,20 +1036,20 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .news-panel.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .news-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 95%;
-      max-width: 1000px;
-      height: 80%;
+      max-width: 900px;
+      height: 75%;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
@@ -1051,31 +1057,31 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
+
     .news-panel.active .news-content {
       transform: scale(1);
     }
-  
+
     .news-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .news-title {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .news-back-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
@@ -1083,27 +1089,27 @@ body {
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-  
+
     .news-back-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .news-body {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 15px;
       flex-grow: 1;
       overflow-y: auto;
       padding: 10px;
     }
-  
+
     .news-section {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 25px;
+      border-radius: 15px;
+      padding: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
@@ -1111,36 +1117,37 @@ body {
       cursor: pointer;
       transition: all 0.3s ease;
     }
-  
+
     .news-section:hover {
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.25);
     }
-  
+
     .news-section-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       text-align: center;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .news-section-icon {
-      font-size: 3rem;
+      font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       color: #ff7b00;
     }
-  
+
     .news-section-desc {
       color: rgba(255, 255, 255, 0.9);
       text-align: center;
       line-height: 1.6;
+      font-size: 0.9rem;
     }
-  
+
     .news-details-panel {
       position: fixed;
       top: 0;
@@ -1156,20 +1163,20 @@ body {
       visibility: hidden;
       transition: all 0.3s ease;
     }
-  
+
     .news-details-panel.active {
       opacity: 1;
       visibility: visible;
     }
-  
+
     .news-details-content {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 25px;
       width: 95%;
-      max-width: 800px;
-      height: 80%;
+      max-width: 700px;
+      height: 75%;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.3);
       transform: scale(0.9);
@@ -1177,31 +1184,31 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
+
     .news-details-panel.active .news-details-content {
       transform: scale(1);
     }
-  
+
     .news-details-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.3);
     }
-  
+
     .news-details-title {
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
-  
+
     .news-details-back-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 255, 255, 0.9);
       color: #ff7b00;
       font-weight: 600;
@@ -1209,129 +1216,216 @@ body {
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
-  
+
     .news-details-back-btn:hover {
       background: #ff7b00;
       color: #fff;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
     }
-  
+
     .news-details-body {
       flex-grow: 1;
       overflow-y: auto;
       padding: 10px;
     }
-  
+
     .news-item {
       background: rgba(255, 255, 255, 0.15);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 15px;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 12px;
       color: white;
       transition: all 0.3s ease;
     }
-  
+
     .news-item:hover {
       background: rgba(255, 255, 255, 0.25);
     }
-  
+
     .news-item-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #ffb347;
     }
-  
+
     .news-item-date {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-  
+
     .news-item-content {
       line-height: 1.6;
+      font-size: 0.9rem;
     }
-  
+
     .remember-me {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       color: white;
       font-weight: 500;
-      margin-top: 10px;
+      margin-top: 8px;
+      font-size: 0.9rem;
     }
-    
+   
     .remember-me input {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
-    
+   
     .logout-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       background: rgba(255, 60, 60, 0.9);
       color: white;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(255, 60, 60, 0.4);
+      font-size: 0.85rem;
     }
-    
+   
     .logout-btn:hover {
       background: rgba(220, 20, 20, 0.9);
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(220, 20, 20, 0.5);
     }
 
+    /* اسکرول بار زیبا */
+    .rank-list::-webkit-scrollbar,
+    .chat-messages::-webkit-scrollbar,
+    .management-body::-webkit-scrollbar,
+    .user-body::-webkit-scrollbar,
+    .staffs-body::-webkit-scrollbar,
+    .news-body::-webkit-scrollbar,
+    .news-details-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .rank-list::-webkit-scrollbar-track,
+    .chat-messages::-webkit-scrollbar-track,
+    .management-body::-webkit-scrollbar-track,
+    .user-body::-webkit-scrollbar-track,
+    .staffs-body::-webkit-scrollbar-track,
+    .news-body::-webkit-scrollbar-track,
+    .news-details-body::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .rank-list::-webkit-scrollbar-thumb,
+    .chat-messages::-webkit-scrollbar-thumb,
+    .management-body::-webkit-scrollbar-thumb,
+    .user-body::-webkit-scrollbar-thumb,
+    .staffs-body::-webkit-scrollbar-thumb,
+    .news-body::-webkit-scrollbar-thumb,
+    .news-details-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .rank-list::-webkit-scrollbar-thumb:hover,
+    .chat-messages::-webkit-scrollbar-thumb:hover,
+    .management-body::-webkit-scrollbar-thumb:hover,
+    .user-body::-webkit-scrollbar-thumb:hover,
+    .staffs-body::-webkit-scrollbar-thumb:hover,
+    .news-body::-webkit-scrollbar-thumb:hover,
+    .news-details-body::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
     @media (max-width: 1024px) {
+      .container {
+        width: 98vw;
+        height: 98vh;
+      }
+      
       .main-content {
         grid-template-columns: 1fr 1fr;
       }
-      
+     
       .management-body {
         grid-template-columns: 1fr;
       }
-      
+     
       .user-body {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
       }
-      
+     
       .news-body {
         grid-template-columns: 1fr 1fr;
       }
     }
-  
+
     @media (max-width: 768px) {
+      :root {
+        font-size: 12px;
+      }
+      
+      .container {
+        width: 100vw;
+        height: 100vh;
+        padding: 10px;
+        gap: 10px;
+      }
+
       .main-content {
         grid-template-columns: 1fr;
       }
-    
+
       .header, .footer {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         text-align: center;
+        padding: 10px 15px;
       }
-    
+
       .action-buttons {
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
       }
-      
+
+      .panel {
+        padding: 15px;
+      }
+     
       .management-body {
         grid-template-columns: 1fr;
       }
-      
+     
       .user-body {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
       }
-      
+     
       .news-body {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        font-size: 11px;
+      }
+      
+      .logo {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .title {
+        font-size: 1.2rem;
+      }
+      
+      .action-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -1351,7 +1445,7 @@ body {
         <button class="logout-btn" id="logoutBtn" style="display: none;">خروج</button>
       </div>
     </div>
-  
+
     <div class="main-content">
       <div class="panel">
         <h2 class="panel-title">قدیمی ترین اعضای فکشن</h2>
@@ -1373,7 +1467,7 @@ body {
           </div>
         </div>
       </div>
-    
+   
       <div class="panel">
         <h2 class="panel-title">فکشن اوپراتور های اخیر</h2>
         <div class="rank-list">
@@ -1399,7 +1493,7 @@ body {
           </div>
         </div>
       </div>
-    
+   
       <div class="panel">
         <h2 class="panel-title">سابلیدرهای فعال فکشن</h2>
         <div class="rank-list">
@@ -1426,7 +1520,7 @@ body {
         </div>
       </div>
     </div>
-  
+
     <div class="footer">
       <div class="footer-info">
         Made By Medical Management | IranMTA.ir
@@ -1440,7 +1534,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="modal" id="gkModal">
     <div class="modal-content">
       <button class="close-btn" id="closeGkModal">
@@ -1448,13 +1542,13 @@ body {
       </button>
       <h2 class="modal-title">جستجوی اطلاعات پلیر</h2>
       <div class="login-form">
-        <input type="text" class="form-input" id="playerName" placeholder="اسم خودتان را وارد کنید (مثال: Dr_Alireza)">
+        <input type="text" class="form-input" id="playerName" placeholder="اسم خودتان را وارد کنید (مثال: The_Soap)">
         <button class="login-btn" id="searchBtn">Search</button>
       </div>
       <div class="result-container" id="resultContainer" style="margin-top: 20px;"></div>
     </div>
   </div>
-  
+
   <div class="staffs-panel" id="staffsPanel">
     <div class="staffs-content">
       <div class="staffs-header">
@@ -1497,7 +1591,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="news-panel" id="newsPanel">
     <div class="news-content">
       <div class="news-header">
@@ -1512,7 +1606,7 @@ body {
           <h3 class="news-section-title">میتینگ‌ها</h3>
           <p class="news-section-desc">آخرین اخبار و اطلاعات مربوط به میتینگ‌های فکشن</p>
         </div>
-        
+       
         <div class="news-section" id="salarySection">
           <div class="news-section-icon">
             <i class="fas fa-money-bill-wave"></i>
@@ -1520,7 +1614,7 @@ body {
           <h3 class="news-section-title">حقوق</h3>
           <p class="news-section-desc">اطلاعات مربوط به حقوق و پرداخت‌های فکشن</p>
         </div>
-        
+       
         <div class="news-section" id="membershipSection">
           <div class="news-section-icon">
             <i class="fas fa-user-plus"></i>
@@ -1531,7 +1625,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="news-details-panel" id="newsDetailsPanel">
     <div class="news-details-content">
       <div class="news-details-header">
@@ -1542,7 +1636,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="modal" id="managementModal">
     <div class="modal-content">
       <button class="close-btn" id="closeManagementModal">
@@ -1555,7 +1649,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="modal" id="loginModal">
     <div class="modal-content">
       <button class="close-btn" id="closeLoginModal">
@@ -1573,7 +1667,7 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div class="management-panel" id="managementPanel">
     <div class="management-content">
       <div class="management-header">
@@ -1586,42 +1680,42 @@ body {
           <div class="form-group">
             <label class="form-label" for="playerNameInput">نام پلیر:</label>
             <input type="text" class="form-input" id="playerNameInput" placeholder="نام پلیر را وارد کنید">
-            
+           
             <label class="form-label" for="playerSalary">حقوق پلیر:</label>
             <input type="text" class="form-input" id="playerSalary" placeholder="مبلغ حقوق را وارد کنید">
-            
+           
             <label class="form-label" for="screenshotsCount">تعداد اسکرین‌شات:</label>
             <input type="number" class="form-input" id="screenshotsCount" placeholder="تعداد اسکرین‌شات">
-            
+           
             <label class="form-label" for="rejectedScreenshots">اسکرین‌شات رد شده:</label>
             <input type="number" class="form-input" id="rejectedScreenshots" placeholder="تعداد اسکرین‌شات رد شده">
-            
+           
             <button class="submit-btn" id="submitSalary">ثبت حقوق</button>
           </div>
         </div>
-        
+       
         <div class="management-section">
           <h3 class="section-title">ثبت اخطار</h3>
           <div class="form-group">
             <label class="form-label" for="warningPlayerName">نام پلیر:</label>
             <input type="text" class="form-input" id="warningPlayerName" placeholder="نام پلیر را وارد کنید">
-            
+           
             <label class="form-label" for="warningReason">دلیل اخطار:</label>
             <input type="text" class="form-input" id="warningReason" placeholder="دلیل اخطار را وارد کنید">
-            
+           
             <label class="form-label" for="warningCount">تعداد:</label>
             <input type="number" class="form-input" id="warningCount" placeholder="تعداد اخطار">
-            
+           
             <label class="form-label" for="warningDate">تاریخ:</label>
             <input type="date" class="form-input" id="warningDate">
-            
+           
             <button class="submit-btn" id="submitWarning">ثبت اخطار</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+
   <div class="user-panel" id="userPanel">
     <div class="user-content">
       <div class="user-header">
@@ -1666,7 +1760,7 @@ body {
             </div>
           </div>
         </div>
-        
+       
         <div class="chat-panel">
           <h3 class="chat-title">ارتباط با تیم مدیریتی</h3>
           <div class="chat-messages" id="chatMessages">
@@ -1678,19 +1772,19 @@ body {
             <button class="chat-send-btn" id="chatSendBtn">ارسال</button>
           </div>
         </div>
-        
+       
         <div class="join-date-panel">
           <div class="join-date-title">تاریخ عضویت</div>
           <div class="join-date-value">2025/10/29 - 1404/08/07</div>
         </div>
-        
+       
         <div class="rank-panel">
           <div class="rank-display">
             <div class="rank-title">رنک شما</div>
             <div class="rank-value" id="userRankDisplay">Member ( R-1 )</div>
           </div>
         </div>
-        
+       
         <div class="warning-panel">
           <div class="warning-display">
             <div class="warning-title">اخطار شما</div>
@@ -1700,20 +1794,20 @@ body {
       </div>
     </div>
   </div>
-  
+
   <div id="warning" class="warning-box">
     <i class="fas fa-exclamation-triangle warning-icon"></i>
     <span>Shoma Dastresi Lazem Ra Nadarid!</span>
   </div>
-  
+
   <script>
+    // کد جاوااسکریپت بدون تغییر باقی می‌ماند
     const gkBtn = document.getElementById('gkBtn');
     const staffsBtn = document.getElementById('staffsBtn');
     const newsBtn = document.getElementById('newsBtn');
     const managementBtn = document.getElementById('managementBtn');
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
-
     const gkModal = document.getElementById('gkModal');
     const staffsPanel = document.getElementById('staffsPanel');
     const newsPanel = document.getElementById('newsPanel');
@@ -1722,7 +1816,6 @@ body {
     const managementPanel = document.getElementById('managementPanel');
     const userPanel = document.getElementById('userPanel');
     const newsDetailsPanel = document.getElementById('newsDetailsPanel');
-
     const closeGkModal = document.getElementById('closeGkModal');
     const staffsBackBtn = document.getElementById('staffsBackBtn');
     const newsBackBtn = document.getElementById('newsBackBtn');
@@ -1731,7 +1824,6 @@ body {
     const backBtn = document.getElementById('backBtn');
     const userBackBtn = document.getElementById('userBackBtn');
     const newsDetailsBackBtn = document.getElementById('newsDetailsBackBtn');
-
     const searchBtn = document.getElementById('searchBtn');
     const submitToken = document.getElementById('submitToken');
     const submitLogin = document.getElementById('submitLogin');
@@ -1739,23 +1831,19 @@ body {
     const submitWarning = document.getElementById('submitWarning');
     const chatSendBtn = document.getElementById('chatSendBtn');
     const rememberMe = document.getElementById('rememberMe');
-
     const playerNameInput = document.getElementById('playerName');
     const tokenInput = document.getElementById('tokenInput');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const chatInput = document.getElementById('chatInput');
-
     const resultContainer = document.getElementById('resultContainer');
     const chatMessages = document.getElementById('chatMessages');
     const warn = document.getElementById('warning');
-
     const meetingSection = document.getElementById('meetingSection');
     const salarySection = document.getElementById('salarySection');
     const membershipSection = document.getElementById('membershipSection');
     const newsDetailsTitle = document.getElementById('newsDetailsTitle');
     const newsDetailsBody = document.getElementById('newsDetailsBody');
-
     const headerRank = document.getElementById('headerRank');
     const welcomeText = document.getElementById('welcomeText');
     const userPanelTitle = document.getElementById('userPanelTitle');
@@ -1766,7 +1854,6 @@ body {
     const userRank = document.getElementById('userRank');
     const userRankDisplay = document.getElementById('userRankDisplay');
     const ownerFeatures = document.getElementById('ownerFeatures');
-
     const users = {
         'The_Soap': {
             password: 'The_Soap2020',
@@ -1791,7 +1878,6 @@ body {
             isOwner: false
         }
     };
-
     const newsData = {
       meeting: [
         {
@@ -1845,12 +1931,10 @@ body {
         }
       ]
     };
-
     let currentUser = null;
-
     document.addEventListener('DOMContentLoaded', () => {
       checkLoginStatus();
-      
+     
       const allItems = document.querySelectorAll('.rank-item .player-weeks');
       allItems.forEach(item => {
         const text = item.textContent.trim();
@@ -1864,7 +1948,6 @@ body {
         }
       });
     });
-
     function checkLoginStatus() {
       const savedUser = localStorage.getItem('medicLoggedInUser');
       if (savedUser) {
@@ -1872,24 +1955,23 @@ body {
         loginUser(userData.username, false);
       }
     }
-
     function loginUser(user, showMessage = true) {
       const userData = users[user];
       currentUser = user;
-      
+     
       displayedUsername.textContent = user;
       userWarnings.textContent = userData.warnings;
       userWeeks.textContent = userData.weeks;
       userMeetings.textContent = userData.meetings;
       userRank.textContent = userData.userRank;
       userRankDisplay.textContent = userData.displayRank;
-      
+     
       headerRank.textContent = `Rank: ${userData.rank}`;
       headerRank.className = `rank-badge ${userData.rankClass}`;
       welcomeText.textContent = `خوش آمدید ${user}`;
-      
+     
       logoutBtn.style.display = 'block';
-      
+     
       if (userData.isOwner) {
         userPanelTitle.textContent = 'پنل مدیریت Owner';
         userRankDisplay.classList.add('owner');
@@ -1899,32 +1981,27 @@ body {
         userRankDisplay.className = 'rank-value';
         ownerFeatures.style.display = 'none';
       }
-      
+     
       loginModal.classList.remove('active');
       usernameInput.value = '';
       passwordInput.value = '';
-      
+     
       if (showMessage) {
         showWarning(`ورود ${user} موفقیت آمیز بود!`, 'success');
       }
     }
-
     gkBtn.addEventListener('click', () => {
       gkModal.classList.add('active');
     });
-
     staffsBtn.addEventListener('click', () => {
       staffsPanel.classList.add('active');
     });
-
     newsBtn.addEventListener('click', () => {
       newsPanel.classList.add('active');
     });
-
     managementBtn.addEventListener('click', () => {
       managementModal.classList.add('active');
     });
-
     loginBtn.addEventListener('click', () => {
       if (currentUser) {
         userPanel.classList.add('active');
@@ -1932,59 +2009,49 @@ body {
         loginModal.classList.add('active');
       }
     });
-
     logoutBtn.addEventListener('click', () => {
       currentUser = null;
       localStorage.removeItem('medicLoggedInUser');
-      
+     
       headerRank.textContent = 'Rank: Member';
       headerRank.className = 'rank-badge member';
       welcomeText.textContent = 'خوش آمدید';
       logoutBtn.style.display = 'none';
-      
+     
       userPanel.classList.remove('active');
-      
+     
       showWarning('شما با موفقیت خارج شدید.', 'success');
     });
-
     closeGkModal.addEventListener('click', () => {
       gkModal.classList.remove('active');
       playerNameInput.value = '';
       resultContainer.innerHTML = '';
     });
-
     staffsBackBtn.addEventListener('click', () => {
       staffsPanel.classList.remove('active');
     });
-
     newsBackBtn.addEventListener('click', () => {
       newsPanel.classList.remove('active');
     });
-
     closeManagementModal.addEventListener('click', () => {
       managementModal.classList.remove('active');
       tokenInput.value = '';
     });
-
     closeLoginModal.addEventListener('click', () => {
       loginModal.classList.remove('active');
       usernameInput.value = '';
       passwordInput.value = '';
     });
-
     backBtn.addEventListener('click', () => {
       managementPanel.classList.remove('active');
     });
-
     userBackBtn.addEventListener('click', () => {
       userPanel.classList.remove('active');
     });
-
     newsDetailsBackBtn.addEventListener('click', () => {
       newsDetailsPanel.classList.remove('active');
       newsPanel.classList.add('active');
     });
-
     window.addEventListener('click', (e) => {
       if (e.target === gkModal) {
         gkModal.classList.remove('active');
@@ -2017,11 +2084,10 @@ body {
         newsPanel.classList.add('active');
       }
     });
-
     searchBtn.addEventListener('click', () => {
       const name = playerNameInput.value.trim();
       resultContainer.innerHTML = '';
-    
+   
       if (name === 'The_Soap' || name === 'SkyZero') {
         const userData = users[name];
         resultContainer.innerHTML = `
@@ -2044,10 +2110,9 @@ body {
         showWarning('پلیر یافت نشد!');
       }
     });
-
     submitToken.addEventListener('click', () => {
       const token = tokenInput.value.trim();
-    
+   
       if (token === 'ABCD1234QERT') {
         managementModal.classList.remove('active');
         managementPanel.classList.add('active');
@@ -2059,12 +2124,11 @@ body {
         showWarning('توکن وارد شده اشتباه است!');
       }
     });
-
     submitLogin.addEventListener('click', () => {
       const user = usernameInput.value.trim();
       const pass = passwordInput.value;
       const remember = rememberMe.checked;
-    
+   
       if (users[user] && users[user].password === pass) {
         if (remember) {
           localStorage.setItem('medicLoggedInUser', JSON.stringify({
@@ -2072,7 +2136,7 @@ body {
             timestamp: Date.now()
           }));
         }
-        
+       
         loginUser(user, true);
       } else if (user === '' || pass === '') {
         showWarning('لطفاً اطلاعات ورود را کامل کنید!');
@@ -2080,58 +2144,54 @@ body {
         showWarning('نام کاربری یا رمز عبور اشتباه است!');
       }
     });
-
     submitSalary.addEventListener('click', () => {
       const playerName = document.getElementById('playerNameInput').value.trim();
       const salary = document.getElementById('playerSalary').value.trim();
       const screenshots = document.getElementById('screenshotsCount').value.trim();
       const rejected = document.getElementById('rejectedScreenshots').value.trim();
-      
+     
       if (playerName === '' || salary === '' || screenshots === '' || rejected === '') {
         showWarning('لطفاً تمام فیلدها را پر کنید!');
         return;
       }
-      
+     
       showWarning(`حقوق ${playerName} با موفقیت ثبت شد!`, 'success');
-      
+     
       document.getElementById('playerNameInput').value = '';
       document.getElementById('playerSalary').value = '';
       document.getElementById('screenshotsCount').value = '';
       document.getElementById('rejectedScreenshots').value = '';
     });
-
     submitWarning.addEventListener('click', () => {
       const playerName = document.getElementById('warningPlayerName').value.trim();
       const reason = document.getElementById('warningReason').value.trim();
       const count = document.getElementById('warningCount').value.trim();
       const date = document.getElementById('warningDate').value;
-      
+     
       if (playerName === '' || reason === '' || count === '' || date === '') {
         showWarning('لطفاً تمام فیلدها را پر کنید!');
         return;
       }
-      
+     
       showWarning(`اخطار برای ${playerName} با موفقیت ثبت شد!`, 'success');
-      
+     
       document.getElementById('warningPlayerName').value = '';
       document.getElementById('warningReason').value = '';
       document.getElementById('warningCount').value = '';
       document.getElementById('warningDate').value = '';
     });
-
     chatSendBtn.addEventListener('click', sendMessage);
-    
+   
     chatInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
-
     function sendMessage() {
       const message = chatInput.value.trim();
       if (message === '') return;
-      
+     
       const messageElement = document.createElement('div');
       const currentUser = displayedUsername.textContent;
-      
+     
       if (users[currentUser] && users[currentUser].isOwner) {
         messageElement.className = 'message owner';
         messageElement.innerHTML = `<strong>${currentUser} (Owner):</strong> ${message}`;
@@ -2139,12 +2199,12 @@ body {
         messageElement.className = 'message';
         messageElement.textContent = `${currentUser}: ${message}`;
       }
-      
+     
       chatMessages.appendChild(messageElement);
-      
+     
       chatInput.value = '';
       chatMessages.scrollTop = chatMessages.scrollHeight;
-      
+     
       setTimeout(() => {
         const responseElement = document.createElement('div');
         responseElement.className = 'message system';
@@ -2153,23 +2213,19 @@ body {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 1500);
     }
-
     meetingSection.addEventListener('click', () => {
       showNewsDetails('میتینگ‌ها', newsData.meeting);
     });
-
     salarySection.addEventListener('click', () => {
       showNewsDetails('حقوق', newsData.salary);
     });
-
     membershipSection.addEventListener('click', () => {
       showNewsDetails('عضویت', newsData.membership);
     });
-
     function showNewsDetails(title, newsItems) {
       newsDetailsTitle.textContent = title;
       newsDetailsBody.innerHTML = '';
-      
+     
       newsItems.forEach(item => {
         const newsItemElement = document.createElement('div');
         newsItemElement.className = 'news-item';
@@ -2180,18 +2236,17 @@ body {
         `;
         newsDetailsBody.appendChild(newsItemElement);
       });
-      
+     
       newsPanel.classList.remove('active');
       newsDetailsPanel.classList.add('active');
     }
-
     function showWarning(msg, type = 'error') {
       const warningBox = document.getElementById('warning');
       const warningIcon = warningBox.querySelector('.warning-icon');
       const warningText = warningBox.querySelector('span');
-    
+   
       warningText.textContent = msg;
-    
+   
       if (type === 'success') {
         warningBox.style.background = 'rgba(40, 167, 69, 0.95)';
         warningIcon.className = 'fas fa-check-circle warning-icon';
@@ -2199,26 +2254,22 @@ body {
         warningBox.style.background = 'rgba(255, 60, 60, 0.95)';
         warningIcon.className = 'fas fa-exclamation-triangle warning-icon';
       }
-    
+   
       warningBox.classList.add('show');
-    
+   
       setTimeout(() => {
         warningBox.classList.remove('show');
       }, 3000);
     }
-
     playerNameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') searchBtn.click();
     });
-
     tokenInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitToken.click();
     });
-
     usernameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
-
     passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
