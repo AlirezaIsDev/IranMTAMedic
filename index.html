@@ -1295,6 +1295,429 @@
       box-shadow: 0 10px 20px rgba(220, 20, 20, 0.5);
     }
 
+    /* استایل‌های جدید برای پنل انتخاب تاپیک */
+    .topic-selection-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .topic-selection-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .topic-selection-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 25px;
+      width: 95%;
+      max-width: 600px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topic-selection-panel.active .topic-selection-content {
+      transform: scale(1);
+    }
+
+    .topic-selection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .topic-selection-title {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .topic-selection-back-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff7b00;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .topic-selection-back-btn:hover {
+      background: #ff7b00;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+    }
+
+    .topic-selection-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .topic-section {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      min-height: 150px;
+    }
+
+    .topic-section:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .topic-section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .topic-section-icon {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #ff7b00;
+    }
+
+    /* استایل‌های جدید برای پنل Time */
+    .time-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .time-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .time-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 25px;
+      width: 95%;
+      max-width: 800px;
+      height: 75%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .time-panel.active .time-content {
+      transform: scale(1);
+    }
+
+    .time-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .time-title {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .time-back-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff7b00;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .time-back-btn:hover {
+      background: #ff7b00;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+    }
+
+    .time-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    .time-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .time-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 12px;
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .time-item:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .time-player-name {
+      flex: 1;
+      text-align: right;
+      margin-right: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .time-action {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 10px;
+      background: #00c853;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .time-action:hover {
+      background: #009624;
+      transform: translateY(-2px);
+    }
+
+    .time-action.end {
+      background: #ff5722;
+    }
+
+    .time-action.end:hover {
+      background: #d84315;
+    }
+
+    /* استایل‌های جدید برای پنل Test */
+    .test-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .test-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .test-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 25px;
+      width: 95%;
+      max-width: 600px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .test-panel.active .test-content {
+      transform: scale(1);
+    }
+
+    .test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .test-title {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .test-back-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff7b00;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .test-back-btn:hover {
+      background: #ff7b00;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+    }
+
+    .test-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
+    /* استایل‌های جدید برای پنل Jabejayi */
+    .jabejayi-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .jabejayi-panel.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .jabejayi-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 25px;
+      width: 95%;
+      max-width: 600px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .jabejayi-panel.active .jabejayi-content {
+      transform: scale(1);
+    }
+
+    .jabejayi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .jabejayi-title {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .jabejayi-back-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #ff7b00;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .jabejayi-back-btn:hover {
+      background: #ff7b00;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+    }
+
+    .jabejayi-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 10px;
+    }
+
     /* اسکرول بار زیبا */
     .rank-list::-webkit-scrollbar,
     .chat-messages::-webkit-scrollbar,
@@ -1302,7 +1725,8 @@
     .user-body::-webkit-scrollbar,
     .staffs-body::-webkit-scrollbar,
     .news-body::-webkit-scrollbar,
-    .news-details-body::-webkit-scrollbar {
+    .news-details-body::-webkit-scrollbar,
+    .time-body::-webkit-scrollbar {
       width: 6px;
     }
 
@@ -1312,7 +1736,8 @@
     .user-body::-webkit-scrollbar-track,
     .staffs-body::-webkit-scrollbar-track,
     .news-body::-webkit-scrollbar-track,
-    .news-details-body::-webkit-scrollbar-track {
+    .news-details-body::-webkit-scrollbar-track,
+    .time-body::-webkit-scrollbar-track {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 3px;
     }
@@ -1323,7 +1748,8 @@
     .user-body::-webkit-scrollbar-thumb,
     .staffs-body::-webkit-scrollbar-thumb,
     .news-body::-webkit-scrollbar-thumb,
-    .news-details-body::-webkit-scrollbar-thumb {
+    .news-details-body::-webkit-scrollbar-thumb,
+    .time-body::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.3);
       border-radius: 3px;
     }
@@ -1334,7 +1760,8 @@
     .user-body::-webkit-scrollbar-thumb:hover,
     .staffs-body::-webkit-scrollbar-thumb:hover,
     .news-body::-webkit-scrollbar-thumb:hover,
-    .news-details-body::-webkit-scrollbar-thumb:hover {
+    .news-details-body::-webkit-scrollbar-thumb:hover,
+    .time-body::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.5);
     }
 
@@ -1359,6 +1786,10 @@
      
       .news-body {
         grid-template-columns: 1fr 1fr;
+      }
+      
+      .topic-selection-body {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1405,6 +1836,10 @@
       }
      
       .news-body {
+        grid-template-columns: 1fr;
+      }
+      
+      .topic-selection-body {
         grid-template-columns: 1fr;
       }
     }
@@ -1535,6 +1970,119 @@
     </div>
   </div>
 
+  <!-- پنل انتخاب تاپیک -->
+  <div class="topic-selection-panel" id="topicSelectionPanel">
+    <div class="topic-selection-content">
+      <div class="topic-selection-header">
+        <h2 class="topic-selection-title">انتخاب تاپیک</h2>
+        <button class="topic-selection-back-btn" id="topicSelectionBackBtn">بازگشت</button>
+      </div>
+      <div class="topic-selection-body">
+        <div class="topic-section" id="timeTopic">
+          <div class="topic-section-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="topic-section-title">Time</h3>
+        </div>
+       
+        <div class="topic-section" id="gkTopic">
+          <div class="topic-section-icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3 class="topic-section-title">G-K</h3>
+        </div>
+       
+        <div class="topic-section" id="jabejayiTopic">
+          <div class="topic-section-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3 class="topic-section-title">Jabejayi</h3>
+        </div>
+       
+        <div class="topic-section" id="testTopic">
+          <div class="topic-section-icon">
+            <i class="fas fa-vial"></i>
+          </div>
+          <h3 class="topic-section-title">Test</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- پنل Time -->
+  <div class="time-panel" id="timePanel">
+    <div class="time-content">
+      <div class="time-header">
+        <h2 class="time-title">پنل Time</h2>
+        <button class="time-back-btn" id="timeBackBtn">بازگشت</button>
+      </div>
+      <div class="time-body">
+        <div class="time-list">
+          <div class="time-item">
+            <div class="time-player-name">King44</div>
+            <button class="time-action" id="timeBtn1">Start Time</button>
+          </div>
+          <div class="time-item">
+            <div class="time-player-name">Hosein11</div>
+            <button class="time-action" id="timeBtn2">Start Time</button>
+          </div>
+          <div class="time-item">
+            <div class="time-player-name">Martian</div>
+            <button class="time-action" id="timeBtn3">Start Time</button>
+          </div>
+          <div class="time-item">
+            <div class="time-player-name">Maslak</div>
+            <button class="time-action" id="timeBtn4">Start Time</button>
+          </div>
+          <div class="time-item">
+            <div class="time-player-name">Dr_Alireza</div>
+            <button class="time-action" id="timeBtn5">Start Time</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- پنل Test -->
+  <div class="test-panel" id="testPanel">
+    <div class="test-content">
+      <div class="test-header">
+        <h2 class="test-title">پنل Test</h2>
+        <button class="test-back-btn" id="testBackBtn">بازگشت</button>
+      </div>
+      <div class="test-body">
+        <div class="login-form">
+          <label class="form-label">نام فرد اکسپت شده در تست را وارد کنید:</label>
+          <input type="text" class="form-input" id="testPlayerName" placeholder="نام پلیر">
+          
+          <label class="form-label">لینک تست را وارد کنید:</label>
+          <input type="text" class="form-input" id="testLink" placeholder="لینک تست">
+          
+          <button class="login-btn" id="submitTest">ثبت اطلاعات تست</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- پنل Jabejayi -->
+  <div class="jabejayi-panel" id="jabejayiPanel">
+    <div class="jabejayi-content">
+      <div class="jabejayi-header">
+        <h2 class="jabejayi-title">پنل Jabejayi</h2>
+        <button class="jabejayi-back-btn" id="jabejayiBackBtn">بازگشت</button>
+      </div>
+      <div class="jabejayi-body">
+        <div class="login-form">
+          <label class="form-label">لطفا تایم مورد نظر خود را برای جابجایی وارد کنید:</label>
+          <input type="text" class="form-input" id="jabejayiTime" placeholder="مثال: 20:00 | 22:00">
+          
+          <button class="login-btn" id="submitJabejayi">ثبت تایم جابجایی</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- بقیه پنل‌ها و مودال‌ها بدون تغییر باقی می‌مانند -->
   <div class="modal" id="gkModal">
     <div class="modal-content">
       <button class="close-btn" id="closeGkModal">
@@ -1801,7 +2349,34 @@
   </div>
 
   <script>
-    // کد جاوااسکریپت بدون تغییر باقی می‌ماند
+    // متغیرهای جدید برای پنل‌های جدید
+    const topicSelectionPanel = document.getElementById('topicSelectionPanel');
+    const topicSelectionBackBtn = document.getElementById('topicSelectionBackBtn');
+    const timeTopic = document.getElementById('timeTopic');
+    const gkTopic = document.getElementById('gkTopic');
+    const jabejayiTopic = document.getElementById('jabejayiTopic');
+    const testTopic = document.getElementById('testTopic');
+    
+    const timePanel = document.getElementById('timePanel');
+    const timeBackBtn = document.getElementById('timeBackBtn');
+    const timeBtn1 = document.getElementById('timeBtn1');
+    const timeBtn2 = document.getElementById('timeBtn2');
+    const timeBtn3 = document.getElementById('timeBtn3');
+    const timeBtn4 = document.getElementById('timeBtn4');
+    const timeBtn5 = document.getElementById('timeBtn5');
+    
+    const testPanel = document.getElementById('testPanel');
+    const testBackBtn = document.getElementById('testBackBtn');
+    const submitTest = document.getElementById('submitTest');
+    const testPlayerName = document.getElementById('testPlayerName');
+    const testLink = document.getElementById('testLink');
+    
+    const jabejayiPanel = document.getElementById('jabejayiPanel');
+    const jabejayiBackBtn = document.getElementById('jabejayiBackBtn');
+    const submitJabejayi = document.getElementById('submitJabejayi');
+    const jabejayiTime = document.getElementById('jabejayiTime');
+
+    // بقیه متغیرهای قبلی
     const gkBtn = document.getElementById('gkBtn');
     const staffsBtn = document.getElementById('staffsBtn');
     const newsBtn = document.getElementById('newsBtn');
@@ -1932,6 +2507,11 @@
       ]
     };
     let currentUser = null;
+    
+    // مدیریت وضعیت Time برای هر دکمه
+    const timeButtons = [timeBtn1, timeBtn2, timeBtn3, timeBtn4, timeBtn5];
+    const timeStates = [false, false, false, false, false];
+    
     document.addEventListener('DOMContentLoaded', () => {
       checkLoginStatus();
      
@@ -1948,6 +2528,7 @@
         }
       });
     });
+    
     function checkLoginStatus() {
       const savedUser = localStorage.getItem('medicLoggedInUser');
       if (savedUser) {
@@ -1955,6 +2536,7 @@
         loginUser(userData.username, false);
       }
     }
+    
     function loginUser(user, showMessage = true) {
       const userData = users[user];
       currentUser = user;
@@ -1990,18 +2572,114 @@
         showWarning(`ورود ${user} موفقیت آمیز بود!`, 'success');
       }
     }
+    
+    // رویدادهای جدید برای پنل‌های جدید
+    timeTopic.addEventListener('click', () => {
+      topicSelectionPanel.classList.remove('active');
+      timePanel.classList.add('active');
+    });
+    
+    gkTopic.addEventListener('click', () => {
+      topicSelectionPanel.classList.remove('active');
+      managementPanel.classList.add('active');
+    });
+    
+    jabejayiTopic.addEventListener('click', () => {
+      topicSelectionPanel.classList.remove('active');
+      jabejayiPanel.classList.add('active');
+    });
+    
+    testTopic.addEventListener('click', () => {
+      topicSelectionPanel.classList.remove('active');
+      testPanel.classList.add('active');
+    });
+    
+    topicSelectionBackBtn.addEventListener('click', () => {
+      topicSelectionPanel.classList.remove('active');
+      managementModal.classList.add('active');
+    });
+    
+    timeBackBtn.addEventListener('click', () => {
+      timePanel.classList.remove('active');
+      topicSelectionPanel.classList.add('active');
+    });
+    
+    testBackBtn.addEventListener('click', () => {
+      testPanel.classList.remove('active');
+      topicSelectionPanel.classList.add('active');
+    });
+    
+    jabejayiBackBtn.addEventListener('click', () => {
+      jabejayiPanel.classList.remove('active');
+      topicSelectionPanel.classList.add('active');
+    });
+    
+    // مدیریت دکمه‌های Start/End Time
+    timeButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        if (timeStates[index]) {
+          // End Time
+          btn.textContent = 'Start Time';
+          btn.classList.remove('end');
+          timeStates[index] = false;
+          showWarning(`Time برای ${btn.parentElement.querySelector('.time-player-name').textContent} متوقف شد`, 'success');
+        } else {
+          // Start Time
+          btn.textContent = 'End Time';
+          btn.classList.add('end');
+          timeStates[index] = true;
+          showWarning(`Time برای ${btn.parentElement.querySelector('.time-player-name').textContent} شروع شد`, 'success');
+        }
+      });
+    });
+    
+    submitTest.addEventListener('click', () => {
+      const playerName = testPlayerName.value.trim();
+      const link = testLink.value.trim();
+      
+      if (playerName === '' || link === '') {
+        showWarning('لطفاً تمام فیلدها را پر کنید!');
+        return;
+      }
+      
+      showWarning(`اطلاعات تست برای ${playerName} با موفقیت ثبت شد!`, 'success');
+      testPlayerName.value = '';
+      testLink.value = '';
+    });
+    
+    submitJabejayi.addEventListener('click', () => {
+      const time = jabejayiTime.value.trim();
+      
+      if (time === '') {
+        showWarning('لطفاً تایم جابجایی را وارد کنید!');
+        return;
+      }
+      
+      showWarning(`تایم جابجایی ${time} با موفقیت ثبت شد!`, 'success');
+      jabejayiTime.value = '';
+    });
+    
+    // رویدادهای قبلی
     gkBtn.addEventListener('click', () => {
       gkModal.classList.add('active');
     });
+    
     staffsBtn.addEventListener('click', () => {
       staffsPanel.classList.add('active');
     });
+    
     newsBtn.addEventListener('click', () => {
       newsPanel.classList.add('active');
     });
+    
     managementBtn.addEventListener('click', () => {
-      managementModal.classList.add('active');
+      if (currentUser) {
+        managementModal.classList.add('active');
+      } else {
+        showWarning('لطفاً ابتدا وارد سیستم شوید!');
+      }
     });
+    
     loginBtn.addEventListener('click', () => {
       if (currentUser) {
         userPanel.classList.add('active');
@@ -2009,6 +2687,7 @@
         loginModal.classList.add('active');
       }
     });
+    
     logoutBtn.addEventListener('click', () => {
       currentUser = null;
       localStorage.removeItem('medicLoggedInUser');
@@ -2022,36 +2701,46 @@
      
       showWarning('شما با موفقیت خارج شدید.', 'success');
     });
+    
     closeGkModal.addEventListener('click', () => {
       gkModal.classList.remove('active');
       playerNameInput.value = '';
       resultContainer.innerHTML = '';
     });
+    
     staffsBackBtn.addEventListener('click', () => {
       staffsPanel.classList.remove('active');
     });
+    
     newsBackBtn.addEventListener('click', () => {
       newsPanel.classList.remove('active');
     });
+    
     closeManagementModal.addEventListener('click', () => {
       managementModal.classList.remove('active');
       tokenInput.value = '';
     });
+    
     closeLoginModal.addEventListener('click', () => {
       loginModal.classList.remove('active');
       usernameInput.value = '';
       passwordInput.value = '';
     });
+    
     backBtn.addEventListener('click', () => {
       managementPanel.classList.remove('active');
+      topicSelectionPanel.classList.add('active');
     });
+    
     userBackBtn.addEventListener('click', () => {
       userPanel.classList.remove('active');
     });
+    
     newsDetailsBackBtn.addEventListener('click', () => {
       newsDetailsPanel.classList.remove('active');
       newsPanel.classList.add('active');
     });
+    
     window.addEventListener('click', (e) => {
       if (e.target === gkModal) {
         gkModal.classList.remove('active');
@@ -2075,6 +2764,7 @@
       }
       if (e.target === managementPanel) {
         managementPanel.classList.remove('active');
+        topicSelectionPanel.classList.add('active');
       }
       if (e.target === userPanel) {
         userPanel.classList.remove('active');
@@ -2083,7 +2773,24 @@
         newsDetailsPanel.classList.remove('active');
         newsPanel.classList.add('active');
       }
+      if (e.target === topicSelectionPanel) {
+        topicSelectionPanel.classList.remove('active');
+        managementModal.classList.add('active');
+      }
+      if (e.target === timePanel) {
+        timePanel.classList.remove('active');
+        topicSelectionPanel.classList.add('active');
+      }
+      if (e.target === testPanel) {
+        testPanel.classList.remove('active');
+        topicSelectionPanel.classList.add('active');
+      }
+      if (e.target === jabejayiPanel) {
+        jabejayiPanel.classList.remove('active');
+        topicSelectionPanel.classList.add('active');
+      }
     });
+    
     searchBtn.addEventListener('click', () => {
       const name = playerNameInput.value.trim();
       resultContainer.innerHTML = '';
@@ -2110,20 +2817,21 @@
         showWarning('پلیر یافت نشد!');
       }
     });
+    
     submitToken.addEventListener('click', () => {
       const token = tokenInput.value.trim();
    
       if (token === 'ABCD1234QERT') {
         managementModal.classList.remove('active');
-        managementPanel.classList.add('active');
+        topicSelectionPanel.classList.add('active');
         tokenInput.value = '';
-        showWarning('ورود به پنل مدیریت موفقیت آمیز بود!', 'success');
       } else if (token === '') {
         showWarning('لطفاً توکن را وارد کنید!');
       } else {
         showWarning('توکن وارد شده اشتباه است!');
       }
     });
+    
     submitLogin.addEventListener('click', () => {
       const user = usernameInput.value.trim();
       const pass = passwordInput.value;
@@ -2144,6 +2852,7 @@
         showWarning('نام کاربری یا رمز عبور اشتباه است!');
       }
     });
+    
     submitSalary.addEventListener('click', () => {
       const playerName = document.getElementById('playerNameInput').value.trim();
       const salary = document.getElementById('playerSalary').value.trim();
@@ -2162,6 +2871,7 @@
       document.getElementById('screenshotsCount').value = '';
       document.getElementById('rejectedScreenshots').value = '';
     });
+    
     submitWarning.addEventListener('click', () => {
       const playerName = document.getElementById('warningPlayerName').value.trim();
       const reason = document.getElementById('warningReason').value.trim();
@@ -2180,11 +2890,13 @@
       document.getElementById('warningCount').value = '';
       document.getElementById('warningDate').value = '';
     });
+    
     chatSendBtn.addEventListener('click', sendMessage);
    
     chatInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendMessage();
     });
+    
     function sendMessage() {
       const message = chatInput.value.trim();
       if (message === '') return;
@@ -2213,15 +2925,19 @@
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }, 1500);
     }
+    
     meetingSection.addEventListener('click', () => {
       showNewsDetails('میتینگ‌ها', newsData.meeting);
     });
+    
     salarySection.addEventListener('click', () => {
       showNewsDetails('حقوق', newsData.salary);
     });
+    
     membershipSection.addEventListener('click', () => {
       showNewsDetails('عضویت', newsData.membership);
     });
+    
     function showNewsDetails(title, newsItems) {
       newsDetailsTitle.textContent = title;
       newsDetailsBody.innerHTML = '';
@@ -2240,6 +2956,7 @@
       newsPanel.classList.remove('active');
       newsDetailsPanel.classList.add('active');
     }
+    
     function showWarning(msg, type = 'error') {
       const warningBox = document.getElementById('warning');
       const warningIcon = warningBox.querySelector('.warning-icon');
@@ -2261,18 +2978,22 @@
         warningBox.classList.remove('show');
       }, 3000);
     }
+    
     playerNameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') searchBtn.click();
     });
+    
     tokenInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitToken.click();
     });
+    
     usernameInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
+    
     passwordInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') submitLogin.click();
     });
-  </script>
+  </script> 
 </body>
 </html>
