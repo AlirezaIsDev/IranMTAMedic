@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IranMTA | Medic</title>
   <link rel="icon" type="image/png" href="https://forum.iranmta.ir/uploads/monthly_2019_05/medic_logo.png.7bc027dc08651ef9f14e3838e641f4ef.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Vazirmatn", "Poppins", sans-serif;
+      font-family: "Vazirmatn", sans-serif;
     }
 
     :root {
@@ -1295,7 +1295,6 @@
       box-shadow: 0 10px 20px rgba(220, 20, 20, 0.5);
     }
 
-    /* استایل‌های جدید برای پنل انتخاب تاپیک */
     .topic-selection-panel {
       position: fixed;
       top: 0;
@@ -1416,7 +1415,6 @@
       color: #ff7b00;
     }
 
-    /* استایل‌های جدید برای پنل Time */
     .time-panel {
       position: fixed;
       top: 0;
@@ -1554,7 +1552,6 @@
       background: #d84315;
     }
 
-    /* استایل‌های جدید برای پنل Test */
     .test-panel {
       position: fixed;
       top: 0;
@@ -1636,7 +1633,6 @@
       padding: 10px;
     }
 
-    /* استایل‌های جدید برای پنل Jabejayi */
     .jabejayi-panel {
       position: fixed;
       top: 0;
@@ -1718,7 +1714,6 @@
       padding: 10px;
     }
 
-    /* اسکرول بار زیبا */
     .rank-list::-webkit-scrollbar,
     .chat-messages::-webkit-scrollbar,
     .management-body::-webkit-scrollbar,
@@ -1970,7 +1965,6 @@
     </div>
   </div>
 
-  <!-- پنل انتخاب تاپیک -->
   <div class="topic-selection-panel" id="topicSelectionPanel">
     <div class="topic-selection-content">
       <div class="topic-selection-header">
@@ -2009,7 +2003,6 @@
     </div>
   </div>
 
-  <!-- پنل Time -->
   <div class="time-panel" id="timePanel">
     <div class="time-content">
       <div class="time-header">
@@ -2043,7 +2036,6 @@
     </div>
   </div>
 
-  <!-- پنل Test -->
   <div class="test-panel" id="testPanel">
     <div class="test-content">
       <div class="test-header">
@@ -2064,7 +2056,6 @@
     </div>
   </div>
 
-  <!-- پنل Jabejayi -->
   <div class="jabejayi-panel" id="jabejayiPanel">
     <div class="jabejayi-content">
       <div class="jabejayi-header">
@@ -2082,7 +2073,6 @@
     </div>
   </div>
 
-  <!-- بقیه پنل‌ها و مودال‌ها بدون تغییر باقی می‌مانند -->
   <div class="modal" id="gkModal">
     <div class="modal-content">
       <button class="close-btn" id="closeGkModal">
@@ -2349,7 +2339,6 @@
   </div>
 
   <script>
-    // متغیرهای جدید برای پنل‌های جدید
     const topicSelectionPanel = document.getElementById('topicSelectionPanel');
     const topicSelectionBackBtn = document.getElementById('topicSelectionBackBtn');
     const timeTopic = document.getElementById('timeTopic');
@@ -2376,7 +2365,6 @@
     const submitJabejayi = document.getElementById('submitJabejayi');
     const jabejayiTime = document.getElementById('jabejayiTime');
 
-    // بقیه متغیرهای قبلی
     const gkBtn = document.getElementById('gkBtn');
     const staffsBtn = document.getElementById('staffsBtn');
     const newsBtn = document.getElementById('newsBtn');
@@ -2508,7 +2496,6 @@
     };
     let currentUser = null;
     
-    // مدیریت وضعیت Time برای هر دکمه
     const timeButtons = [timeBtn1, timeBtn2, timeBtn3, timeBtn4, timeBtn5];
     const timeStates = [false, false, false, false, false];
     
@@ -2573,7 +2560,6 @@
       }
     }
     
-    // رویدادهای جدید برای پنل‌های جدید
     timeTopic.addEventListener('click', () => {
       topicSelectionPanel.classList.remove('active');
       timePanel.classList.add('active');
@@ -2614,17 +2600,14 @@
       topicSelectionPanel.classList.add('active');
     });
     
-    // مدیریت دکمه‌های Start/End Time
     timeButtons.forEach((btn, index) => {
       btn.addEventListener('click', () => {
         if (timeStates[index]) {
-          // End Time
           btn.textContent = 'Start Time';
           btn.classList.remove('end');
           timeStates[index] = false;
           showWarning(`Time برای ${btn.parentElement.querySelector('.time-player-name').textContent} متوقف شد`, 'success');
         } else {
-          // Start Time
           btn.textContent = 'End Time';
           btn.classList.add('end');
           timeStates[index] = true;
@@ -2659,7 +2642,6 @@
       jabejayiTime.value = '';
     });
     
-    // رویدادهای قبلی
     gkBtn.addEventListener('click', () => {
       gkModal.classList.add('active');
     });
